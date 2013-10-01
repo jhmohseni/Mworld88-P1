@@ -1,0 +1,160 @@
+<!-- i-C-a -->
+<div id="formgold" data-role="page">
+  <script src="js/hammer.js"></script>
+	<script src="js/jquery.hammer.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholderbh"><h1>Supernova...<br>and the formation of Gold</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="snremainslink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Where_BH_Come/snremains.jpg', 'The remains of a supernova explosion')" href="#">click here</a>
+        <a id="goldbarslink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Where_BH_Come/goldbars.jpg', 'Gold... it looks great and costs a lot, but did you know it comes from the inside of a supernova?')" href="#">click here</a>
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="images/5-8/Space/Black_Holes/Where_BH_Come/quiztime2pol.jpg">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(images/5-8/Space/Black_Holes/Where_BH_Come/quiztime2back.jpg) no-repeat;">
+              <div style="width:100px;height:40px;position:relative;top:157px;left:200px;">
+                <input type="text" id="tfanswer1" style="background:rgba(255, 255, 255, 0.25);border:none;text-align:center;">
+              </div>
+              <div style="width:324px;height:62px;position:relative;top:156px;left:5x;">
+                <img id="backbtn1" src="images/5-8/Space/Black_Holes/Where_BH_Come/backbtn.png">
+                <img id="submitans" src="images/5-8/Space/Black_Holes/Where_BH_Come/submitbtn.png">
+              </div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+        <div id="zoomwrapper">    
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Space/Black_Holes/Where_BH_Come/snremainspol.jpg" alt="" />
+          </div>
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Space/Black_Holes/Where_BH_Come/goldbarspol.jpg" alt="" />
+          </div>
+          <div id="polb3"class="pPiece" style="left:80px;top:270px;">
+              <img src="images/5-8/Space/Black_Holes/Where_BH_Come/quiztime2pol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentbh">
+        <p>When the Universe was formed, it was mostly made up of hydrogen and helium.</p>
+        <p>All the other elements, including the oxygen we breathe and the gold we wear, were made via nuclear reactions. Where did these nuclear reactions take place?  In stars.</p>
+        <p>When a big star dies in a supernova, it has a series of large explosions that spread all these elements into space.  These elements sometimes come together and form planets, like our very own Earth!</p>
+        <p>Do you know someone wearing a gold ring, or a gold necklace? That gold was created during a supernova explosion over four and half billion years ago!</p>
+        <p>Why don’t you ask your mum or dad if they know where gold comes from?  You can tell them the story of how a supernova makes gold!</p>		  
+      </div>
+    </div><!--end of content-->
+    
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+  </div><!--/spacechar-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="formgoldaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="formgoldaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="formgoldaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="formgoldaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-formgold" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    soundpop = new Audio(); // 'sound' is now an audio object
+    (function() {			
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");      
+      $('div#polb1').css("z-index", 2);      
+      $('div#polb2').css("z-index", 1);      
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");      
+      $('div#polb3 > img').css("-webkit-transform", "rotate(-5deg)"); 
+      $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      
+      if(sound.canPlayType('audio/mpeg')) {        
+        $('#actualaudio-formgold').html('<audio controls preload id="formgoldaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/GoldFormation.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#formgold").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    
+    function goBack() {
+      $.mobile.changePage("sub-space-bh-supernova.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }		
+    
+    $("#submitans").on('tap', function() {
+      var tfans1 = $('#tfanswer1').val();
+      if(tfans1.toLowerCase() == "true") {
+        alert("That's right... nice job, you've earned 100 MPoints.");
+      } else {
+        alert("Sorry, that's not right, try again...");
+      }
+    });
+    
+    $("#backbtn1").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#polb3").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //$("#hittites").swipe("enable");
+    });
+    
+    $("#polb3").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+      //$("#hittites").swipe("disable");
+      //$("#dopple").css({"visibility":"hidden"});
+    });
+    $("#polb2").on('tap', function() {      $('#goldbarslink')[0].click();    });        
+    $("#polb1").on('tap', function() {      $('#snremainslink')[0].click();    });  
+    
+    /* ******************** */
+    $("#formgoldaudioplbtn").on('tap', function() {
+      formgoldaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#formgoldaudiofbtn").on('tap', function() {
+      var ctime = formgoldaudio.currentTime;
+      formgoldaudio.currentTime = ctime + 10;
+    });
+    
+    $("#formgoldaudiobbtn").on('tap', function() {
+      var ctime = formgoldaudio.currentTime;
+      formgoldaudio.currentTime = ctime - 10;
+    });
+    
+    $("#formgoldaudiopsbtn").on('tap', function() {
+      formgoldaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+  <script src="js/threecardLogicb.js"></script>
+</div>

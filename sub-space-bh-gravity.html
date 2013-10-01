@@ -1,0 +1,107 @@
+<!-- i-C-a -->
+<div id="gravity" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="bonus-gravity" class="talkbubble" style="background:url(images/5-8/Space/Black_Holes/game/gravityq.png) no-repeat; width:473px;height:296px;position:absolute;left:300px;top:40px;visibility:hidden;">
+    <div style="width:100px;height:40px;position:relative;top:133px;left:240px;">
+      <input type="text" id="tfanswer2" style="background:rgba(255, 255, 255, 0.25);border:none;text-align:center;">
+    </div>
+    <div style="width:324px;height:62px;position:relative;top:129px;left:212px;">
+      <img id="submitans2" src="images/5-8/Space/Black_Holes/Where_BH_Come/submitbtn.png">
+    </div>
+  </div><!--/bonus-msm-->
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="storypagetitlebh"><h1>Gravity</h1></div>
+      <div class="storypagebh">
+        <p>When we drop something, such as an egg or a mobile phone, it falls to the ground.  What is pulling it to the ground?  It is the force of gravity.   Gravity pulls the eggs and mobile phones (and people!) towards the surface of the Earth.  If there was no gravity then we would be able to float in the air, like an astronaut in space!</p>
+        <p>The pull of gravity, which pulls us towards the Earth, also pulls the Moon towards the Earth.  This is why the Moon does not fly away into outer space, but remains ‘connected’ to the Earth.</p>
+        <p>You might be wondering why the pull of gravity exists at all.  You may be surprised to know that scientists still do not understand why gravity exists.  Maybe one day you can become a scientist and help us to solve the puzzle of gravity!</p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  <section class="container" style="height:670px;margin-top:-600px;">
+      <div class="spriteComing"></div>
+    </section>
+  <div class="audiopanel">
+    <div class="bbh"><img id="gravityaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="gravityaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="gravityaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="gravityaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-gravity" style="visibility:hidden;"></div>
+  </div>
+  <script src="js/spritespin.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="js/script.js"></script>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    (function() {
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-gravity').html('<audio controls preload id="gravityaudio" onpause="playbh()" onplay="pausebh()"><source src="audio/Gravity.mp3" type="audio/mpeg"></audio>');
+      } 
+      
+      $("#gravity").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    $('#start-gravity').on('click', function() {
+    	$('#actualaudio-gravity').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-gravity').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-space-bh-whatisbh.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    
+    $("#submitans2").on('tap', function() {
+      var tfans2 = $('#tfanswer2').val();
+      if(tfans2.toLowerCase() == "false") {
+        alert("Correct, you've earned 100 MPoints.");
+      } else {
+        alert("Sorry, that's not right, try again...");
+      }
+    });
+    /* ******************** */
+    $("#gravityaudioplbtn").on('tap', function() {
+      gravityaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#gravityaudiofbtn").on('tap', function() {
+      var ctime = gravityaudio.currentTime;
+      gravityaudio.currentTime = ctime + 10;
+    });
+    
+    $("#gravityaudiobbtn").on('tap', function() {
+      var ctime = gravityaudio.currentTime;
+      gravityaudio.currentTime = ctime - 10;
+    });
+    
+    $("#gravityaudiopsbtn").on('tap', function() {
+      gravityaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

@@ -1,0 +1,88 @@
+<!-- i-C-a -->
+<div id="bhcomefrom" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="sgl" style="width:175px;height:160px;left:30px;top:44px;background:transparent;position:absolute"></div>
+        <div id="snl" style="width:175px;height:160px;left:160px;top:330px;background:transparent;position:absolute"></div>
+        <div id="nsl" style="width:175px;height:160px;left:328px;top:110px;background:transparent;position:absolute"></div>
+        <div id="bhl" style="width:175px;height:160px;left:280px;top:550px;background:transparent;position:absolute"></div>
+      </div>
+      <div class="storypagetitlebh"><h1>How is a black<br>hole formed?</h1></div>
+      <div class="storypagebh" style="top:300px;">
+        <p>Black holes are formed when very, very large stars called supergiants explode.  The explosion of a supergiant star is called a supernova.  Sometimes all that remains of a supernova explosion is a small, very dense core called a neutron star. </p>
+        <p>When the exploding star is really massive, the core of the star collapses completely and leaves behind a black hole.  Click on each image to find out more… including some cool stories about where gold comes from, and the link between our own bodies and a supernova...!</p>		  
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="comefromaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="comefromaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="comefromaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="comefromaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-comefrom" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    (function() {
+           /* $('#node-body-minoans').html(data[0].Body);*/
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-comefrom').html('<audio controls preload id="comefromaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/WhereBlackHolesComeFrom.mp3" type="audio/mpeg"></audio>');
+      } 
+      
+      $("#bhcomefrom").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+
+    $("#sgl").on('tap', function() { $.mobile.changePage("sub-space-bh-supergiant.html", {transition:"slide"}); });
+    $("#snl").on('tap', function() { $.mobile.changePage("sub-space-bh-supernova.html", {transition:"slide"}); });
+    $("#nsl").on('tap', function() { $.mobile.changePage("sub-space-bh-neutron.html", {transition:"slide"}); });
+    $("#bhl").on('tap', function() { $.mobile.changePage("sub-space-bh-blackhole.html", {transition:"slide"}); });
+    
+   $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+   function goBack() {
+      $.mobile.changePage("sub-space-bh.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#comefromaudioplbtn").on('tap', function() {
+      comefromaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#comefromaudiofbtn").on('tap', function() {
+      var ctime = comefromaudio.currentTime;
+      comefromaudio.currentTime = ctime + 10;
+    });
+    
+    $("#comefromaudiobbtn").on('tap', function() {
+      var ctime = comefromaudio.currentTime;
+      comefromaudio.currentTime = ctime - 10;
+    });
+    
+    $("#comefromaudiopsbtn").on('tap', function() {
+      comefromaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

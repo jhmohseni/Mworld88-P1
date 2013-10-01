@@ -1,0 +1,154 @@
+<!-- i-C-a -->
+<div id="spartans" data-role="page">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Spartan Society and War</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="leonidaslink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/leonidas.jpg', 'Statue of the famous Spartan King Leonidas')" href="#">click here</a>
+        <a id="peloponneselink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/peloponnese.jpg', 'The Peloponnese, homeland of the Spartans, as it is today')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/leonidaspol.jpg" alt="" />
+          </div>
+          <div id="polb2" class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/peloponnesepol.jpg" alt="" />
+          </div>
+          <div id="polb3" class="pPiece" style="left:80px;top:270px;">
+              <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/spartancallpol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontent">  
+        <p>Sparta in the early days was a lively place where the arts flourished and poets such as Alcman wrote verses about beauty and love. However, the long wars which the Spartans had to fight to establish themselves in their homeland changed the character of their society. Sparta became xenophobic and strictly dedicated to the art of war. </p>
+        <p>The Spartans fought long wars against their local rivals, the Messenians and against other Greeks, mainly the Athenians and their allies.  They also fought with the Athenians, against the Persians in the sixth century.</p>
+        <p>Spartan children left their homes and lived together with other children, learning to fight and even to steal. They were encouraged to steal in order to feed themselves, but if caught they should never admit it.  This might seem strange in today's world, but the Spartans were teaching their children how to survive in a tough and brutal world.</p>
+        <!--<p style="margin:auto;"><a href="#" data-role="button" id="spartancall">Hear the Spartan call to arms!</a></p>-->
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+      
+    </div> <!--end of content-->
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="spartansaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="spartansaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="spartansaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="spartansaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-spartans" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    sound2 = new Audio(); // 'sound' is now an audio object
+    (function() {
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb1').css("z-index", 2);
+      $('div#polb2').css("z-index", 1);
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#polb3 > img').css("-webkit-transform", "rotate(-3deg)");
+            
+            
+            if(sound.canPlayType('audio/mpeg')) {
+              
+              $('#actualaudio-spartans').html('<audio id="spartansaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page12.mp3" type="audio/mpeg"></audio>');
+            } 
+         
+    
+    $("#spartans").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    
+    (function() {
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=73";
+     $.getJSON( url, function( data ) {
+            var html = data[0].Images;
+            var re = /<img[^>]+src="http:\/\/([^">]+)/g;
+            var results = re.exec(html);
+            var source = results[1];
+            $('#leonidas2').attr('href', "JavaScript:html5Lightbox.showLightbox(0, 'http://"+source+"', 'Statue of famous Spartan King Leonidas');")
+         
+            sound2.src = data[0].Audio;
+         });
+    })();
+    
+    (function() {
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=74";
+     $.getJSON( url, function( data ) {
+            var html = data[0].Images;
+            var re = /<img[^>]+src="http:\/\/([^">]+)/g;
+            var results = re.exec(html);
+            var source = results[1];
+            $('#leonidas3').attr('href', "JavaScript:html5Lightbox.showLightbox(0, 'http://"+source+"', 'Statue of famous Spartan King Leonidas');")
+         });
+    })();
+    
+    $('#start-spartans').on('click', function() {
+    	$('#actualaudio-spartans').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-spartans').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    $('#spartancall').on('click', function() {
+    	sound2.play();
+      agsoundbg.pause();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-tribes.html");
+      sound2.pause();
+      agsoundbg.play();
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    $("#polb3").on('tap', function() {
+      sound2.play();
+      agsoundbg.pause();
+    });
+    
+    $("#polb2").on('tap', function() {
+      $('#peloponneselink')[0].click();
+    });
+    
+    $("#polb1").on('tap', function() {
+      $('#leonidaslink')[0].click();
+    });
+    /* ******************** */
+    $("#spartansaudioplbtn").on('tap', function() {
+      spartansaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#spartansaudiofbtn").on('tap', function() {
+      var ctime = spartansaudio.currentTime;
+      spartansaudio.currentTime = ctime + 10;
+    });
+    
+    $("#spartansaudiobbtn").on('tap', function() {
+      var ctime = spartansaudio.currentTime;
+      spartansaudio.currentTime = ctime - 10;
+    });
+    
+    $("#spartansaudiopsbtn").on('tap', function() {
+      spartansaudio.pause();
+    });
+  </script>
+  <script src="js/threecardLogicb.js"></script>
+</div>

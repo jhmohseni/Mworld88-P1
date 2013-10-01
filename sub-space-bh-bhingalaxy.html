@@ -1,0 +1,109 @@
+<!-- i-C-a -->
+<div id="bhingalaxy" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>The Black Hole in Our Galaxy</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                  <a id="centermwlink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/centermw.jpg', 'The neighbourhood of the centre of our galaxy, the Milky Way')" href="#">click here</a>
+                 <a id="sagittariusalink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/sagittariusa.jpg', 'Sagittarius A*, the site of the supermassive black hole at the centre of our galaxy... Can you see the black hole?')" href="#">click here</a>
+                  <div id="zoomwrapper">
+                      <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                         <img src="images/5-8/Space/Black_Holes/Life_Around_BH/centermwpol.jpg" alt="" />
+                      </div>
+                      <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+                         <img src="images/5-8/Space/Black_Holes/Life_Around_BH/sagittariusapol.jpg" alt="" />
+                      </div>
+                   </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontentbh">
+                    <p>Yes, there is a black hole at the centre of our galaxy a very, very large black hole! But dont worry, its very very far away. In fact its so far away it will never come close enough to be a threat to the Earth.</p>
+                    <p>There are also other black holes in our galaxy, but these are much smaller than the black hole at the centre of our galaxy. These black holes are also very far away. You see, the Universe really is a very large place.</p>
+                    <p>What would happen if a black hole hit the Earth? If it was a big black hole, it would swallow the Earth. Luckily, this is very unlikely to ever happen.</p>
+                    <p>If a small black hole hit the Earth it would pass straight through the Earth, and keep on going.  The Universe really is a strange place too!</p>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+    <div class="audiopanel">
+      <div class="bbh"><img id="bhingalaxyaudiobbtn" src="images/audio/audio-back.png"></div>
+      <div class="plbh"><img id="bhingalaxyaudioplbtn" src="images/audio/audio-play.png"></div>
+      <div class="psbh"><img id="bhingalaxyaudiopsbtn" src="images/audio/audio-pause.png"></div>
+      <div class="fbh"><img id="bhingalaxyaudiofbtn" src="images/audio/audio-forw.png"></div>
+      <div id="actualaudio-bhingalaxy" style="visibility:hidden;"></div>
+    </div>
+    <script>
+   
+        (function() {
+          $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+          $('div#pol1').css("z-index", 2);
+          $('div#pol2').css("z-index", 1);
+          $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            
+                if(sound.canPlayType('audio/mpeg')) {
+                    $('#actualaudio-bhingalaxy').html('<audio controls preload id="bhingalaxyaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/page19bh.mp3" type="audio/mpeg"></audio>');
+                } 
+         
+            
+            $("#bhingalaxy").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );    
+      
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioSrc();
+        })();
+
+       function pausedaudio() {
+         bgsoundbh.play();
+       }
+       
+       function pausebg() {
+         bgsoundbh.pause();
+       }
+       
+        $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+        function goBack() {
+            $.mobile.changePage("sub-space-bh-galaxies.html");
+        }
+        
+        $("#pol2").on('tap', function() {
+         $('#sagittariusalink')[0].click();
+        });
+       
+       $("#pol1").on('tap', function() {
+         $('#centermwlink')[0].click();
+       });
+       /* ******************** */
+    $("#bhingalaxyaudioplbtn").on('tap', function() {
+      bhingalaxyaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#bhingalaxyaudiofbtn").on('tap', function() {
+      var ctime = bhingalaxyaudio.currentTime;
+      bhingalaxyaudio.currentTime = ctime + 10;
+    });
+    
+    $("#bhingalaxyaudiobbtn").on('tap', function() {
+      var ctime = bhingalaxyaudio.currentTime;
+      bhingalaxyaudio.currentTime = ctime - 10;
+    });
+    
+    $("#bhingalaxyaudiopsbtn").on('tap', function() {
+      bhingalaxyaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    </script>
+    <script src="js/twocardLogic.js"></script>
+</div>

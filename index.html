@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<!-- i-C-a -->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+ 
+  <title>Kidz First</title> 
+  <link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/ioslider.css" />
+  <script src="js/preloadjs-0.3.1.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/jquery.easing.js"></script>
+  <script src="js/jquery.mobile-1.2.1.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/index2.js"></script>
+   
+  <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+
+  <script type="text/javascript" src="js/filesystem.js"></script>
+  <script type="text/javascript" src="js/assetsPath.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/preload.custom.js"></script>
+  
+  <script type="text/javascript" src="js/html5lightbox.js"></script>
+  <script type="text/javascript">
+    var html5lightbox_options = { bgcolor: "#000000"};
+  </script>
+  <script type="text/javascript" src="js/jquery.iosslider.js"></script>
+  <script type="text/javascript" src="js/mpoints.js"></script>
+  <script type="text/javascript" src="js/jquery.session.js"></script>
+</head> 
+<body> 
+  <div data-role="page" id="indexpage">
+    
+    <!--<div style="width:50%; float:left;margin-top:100px;text-align:center;"><a href="mzonespace.html" data-transition="slide"><img src="css/images/stud2.png"></a></div>-->
+    <div style="width:50%; float:left;margin-top:100px;text-align:center;" id="home2linkholder"><a href="home.html" id="home2link" data-transition="slide" data-prefetch><img src="css/images/stud2.png"></a></div>
+    <div style="width:50%; float:left;margin-top:100px;text-align:center;display:none;" id="home2linkloginholder"><a id="home2linklogin" href="#loginpop" data-rel="popup"><img src="css/images/stud2.png"></a></div>
+    <div class="v-spacer"></div>
+    <div style="width:30%;margin:auto;">
+      <a id="loginbtn" href="#loginpop" data-rel="popup" type="button" style="visibility:hidden;">Login</a>
+      <a id="profilebtn" href="profile.html" data-role="button">My Profile</a>
+    </div>
+          
+    <div data-role="popup" id="loginpop" data-position-to="window" data-overlay-theme="a" style="text-align:center;width:500px;;">
+      <div id="logincontainer" style="width:50%;margin:auto;text-align:center;">
+          <div data-role="fieldcontain">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br>
+          </div>
+          <div data-role="fieldcontain">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+          </div>
+          <input type="submit" value="Login" id="submitlogin" />
+      </div>
+    </div>
+    <div class="app" style="display:none">
+        <h1>Apache Cordova</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+  </div><!-- /page -->
+  <script>
+    $(function() {
+      if($.session.get('usersession') == null) {
+        $('#home2linkholder').css('display','none');
+        $('#home2linkloginholder').css('display','block');
+        $('#profilebtn').css('visibility','hidden');
+        $('#loginbtn').css('visibility','visible');
+      }
+    });
+    //$('#home2link').on('tap', function() { spacesoundbg.play(); });
+    $('#home2link').on('tap', function() { mainaudiobg.play(); });
+    
+    $('#submitlogin').on('tap', function() {
+        var username = $('#username').val();
+        var password = $('#password').val();
+        //alert(username+" and "+password);
+        if(username != '') {
+          $.session.set('usersession', username);
+          $('#home2linkholder').css('display','block');
+          $('#home2linkloginholder').css('display','none');
+          $('#profilebtn').css('visibility','visible');
+          $('#loginbtn').css('visibility','hidden');
+          $('#loginpop').popup('close');
+        } else {
+          alert("try again");
+        }
+      });
+  </script>
+  <script>//navigator.notification.alert('dfdsfs');
+  app.initialize();
+  $(document).ready(function() {
+    //$.preloadCssImages();
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!-- i-C-a -->
+<div data-role="page" id="wonderscience2">
+ 
+  
+  <div data-role="content" style="overflow:hidden !important;">
+    
+    <div id="titleb-holder"><h1 style="margin-top:184px;">The Wonders of Science</h1></div>
+    
+    <div style="width:90%;margin:auto;">
+      <div class="aclink"><a href="#" data-transition="slide" id="agmovielink"><img src="css/images/9-12/The_Wonders_of_Science/weknowbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/lifeworkbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/inviworldbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/lategreatbtn.png"></a></div><br>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/greenrevobtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/scientistbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/waterbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Wonders_of_Science/chemicalreactbtn.png"></a></div>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/bottomhome.png"></a></div>
+  </div> <!-- end content -->  
+    <script>
+				$(function() {
+					$("#wonderscience2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+				});
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      sciencesoundbg.pause(); sciencesoundbg.currentTime = 0; 
+      mainaudiobg.play();
+    }
+    
+    $('.homelinkbh').on('tap', function() { 
+      mainaudiobg.play(); sciencesoundbg.pause(); sciencesoundbg.currentTime = 0; 
+    });
+			</script>
+</div>

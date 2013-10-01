@@ -1,0 +1,33 @@
+<!-- i-C-a -->
+<div data-role="page" id="naturalworld2">
+  <div data-role="content" style="overflow:hidden !important;">
+    <div id="titleb-holder"><h1 style="margin-top:184px;">The Natural World</h1></div>
+    
+    <div style="width:90%;margin:auto;">
+      <div class="aclink"><a href="#" data-transition="slide" id="agmovielink"><img src="css/images/9-12/The_Natural_World/weatherbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Natural_World/volcanoesbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Natural_World/deepseabtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Natural_World/mountainsbtn.png"></a></div><br>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Natural_World/iceagebtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Natural_World/earthquakebtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Natural_World/junglebtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Natural_World/fireandfloodbtn.png"></a></div>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/bottomhome.png"></a></div>
+  </div> <!-- end content -->  
+    <script>
+				$(function() {
+					$("#naturalworld2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+				});
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      naturalsoundbg.pause(); naturalsoundbg.currentTime = 0;
+      mainaudiobg.play();
+    }
+    
+    $('#homelinknaturalworld').on('tap', function() { 
+      mainaudiobg.play(); naturalsoundbg.pause(); naturalsoundbg.currentTime = 0;
+    });
+			</script>
+</div>

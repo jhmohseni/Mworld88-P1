@@ -1,0 +1,110 @@
+<div id="olympics" data-role="page">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="olympicq" class="talkbubble" style="background:url(images/5-8/Ancient_Civilizations/Greece/game/olympicq.png) no-repeat; width:421px;height:305px;position:absolute;left:310px;top:20px;visibility:hidden;padding:100px 0 0 50px;">
+    <div id="discus" class="olym" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/olym-disc.png) no-repeat;width:150px;height:85px;margin-right:50px;">&nbsp;</div>
+    <div id="javelin" class="olym" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/olym-jave.png) no-repeat;width:175px;height:85px;">&nbsp;</div>
+    <div id="wrestling" class="olym" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/olym-wrest.png) no-repeat;width:154px;height:88px;margin-right:50px;">&nbsp;</div>
+    <div id="beachv" class="olym" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/olym-bv.png) no-repeat;width:177px;height:83px;">&nbsp;</div>
+  </div><!--/olympicq-->
+  <div id="anisold"><div id="animatedsoldier"></div>
+    <div id="acgreecechar">&nbsp;
+      <div data-role="content" class="kidzcontent">
+        <div class="storypagetitle"><h1>The Olympic Games</h1></div>
+        <div id="node-body-holder" class="storypage">
+          <p>According to historical records, the first ancient Olympic Games can be traced back to 776 BCE. They were dedicated to the god Zeus and were staged on the plains of Olympia in the Peloponnese. They continued for nearly 12 centuries, until they were banned by the Roman Emperor Theodosius.</p>
+          <p>The Olympic Games played a unique role in promoting peace in ancient times. Wars were suspended for ten days before and after the Games to allow for spectators to travel safely to the Games and back to their cities. The Games were also an opportunity for Greeks to celebrate their language, religion, and way of life. The founders of the modern Olympic Games hoped to recapture this spirit and to promote peace and the celebration of life.</p>
+          <p>Do you like sports?  Maybe one day you will compete in the modern Olympic Games.  You might be competing in a sport that the ancient Greeks played too!</p>
+        </div><!--/node-content/half-->
+        
+        <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+        
+      </div><!--/.kidzcontent-->
+    </div><!--/acgreecechar-->
+  </div><!--/anisold-->
+  
+  <section class="container" style="height:670px;margin-top:0px;">
+    <div class="spriteComing"></div>
+  </section>
+  <script src="js/spritespin.js" type="text/javascript"></script>
+  <script language="javascript" type="text/javascript" src="js/script.js"></script>
+  <div class="audiopanel">
+    <div class="bbh"><img id="olympicsaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="olympicsaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="olympicsaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="olympicsaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-olympics" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    (function() {
+      
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-olympics').html('<audio id="olympicsnar" controls preload onpause="playolympics()" onplay="pauseolympics()"><source src="audio/Page14.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+    $("#olympics").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    $('#start-olympics').on('click', function() {
+      $('#actualaudio-olympics').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-olympics').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    function playolympics() {
+      olympicsaudiobg.pause();
+    }
+    
+    function playolympics() {
+      olympicsaudiobg.play();
+    }
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-lifeinag.html");
+      olympicsaudiobg.pause();
+      agsoundbg.play();
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $(".olym").on('tap', function() {
+      var ansId = $(this).attr("id");
+      if(ansId == "beachv") {
+        alert("You're right! Beach volleyball did not originate from Ancient Greece.");
+      } else {
+        alert("Sorry, you got it wrong.");
+      }
+    });
+    /* ******************** */
+    $("#olympicsaudioplbtn").on('tap', function() {
+      olympicsnar.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#olympicsaudiofbtn").on('tap', function() {
+      var ctime = olympicsnar.currentTime;
+      olympicsnar.currentTime = ctime + 10;
+    });
+    
+    $("#olympicsaudiobbtn").on('tap', function() {
+      var ctime = olympicsnar.currentTime;
+      olympicsnar.currentTime = ctime - 10;
+    });
+    
+    $("#olympicsaudiopsbtn").on('tap', function() {
+      olympicsnar.pause();
+    });
+  </script>
+</div>

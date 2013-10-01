@@ -1,0 +1,127 @@
+<!-- i-C-a -->
+<div id="snexplosion" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="navtitleholderbh"><h1>Supernova...<br>How big are they?</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+          <img src="images/5-8/Space/Black_Holes/Where_BH_Come/supimpressionpol.jpg" alt="" />
+        </div>
+      </div>
+      
+      <div class="bpcontentbh">
+        <p>The explosion of a supernova can be a really, really big explosion.  In fact, a really bright supernova emits bursts of  <a href="#imongnawong" data-rel="popup">gamma rays</a> that can outshine everything else in the Universe for a few seconds!</p>	
+        <p>This means they can be seen from very, very far away. We can see these explosions in our telescopes even when they occurred billions of years ago on the other side of the Universe!</p>
+        <p>Imagine if you had a torch that could shine a light all the way across the Universe – wow, that would be a bright torch!</p>
+      </div>
+      
+      <div data-role="popup" id="imongnawong" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+        <div id="node-pop">
+          <p>There are many types of light. There is light that we can see, but there are also types of light that we cannot see.</p>
+          <p>The colours blue and red are types of light that we can see.</p>
+          <p>X-rays and gamma rays are high energy forms of light that we cannot see with our eyes.  These high energy forms of light come from the most violent places in the Universe, including black holes.</p>		
+          <p>These types of light can be very useful here on Earth.  For example, if you have fallen over, a doctor can use x-rays to see inside your body and check if you have broken any bones!</p>
+        </div>
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="snexplosionaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="snexplosionaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="snexplosionaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="snexplosionaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-snexplosion" style="visibility:hidden;"></div>
+  </div>
+  <div id="supernovahubbleholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+      <div class="previdcontainer">
+        <video id="supernovahubble" width="1024" height="748" preload>
+          <source src="video/supernovahubble.m4v" type="video/mp4">
+        </video>
+      </div>
+  </div> 
+  <script>
+    sound3 = new Audio(); // 'sound' is now an audio object
+    soundpop1 = new Audio(); // 'sound' is now an audio object
+    (function() {				
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");      
+      $('div#polb1').css("z-index", 1);
+      
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-snexplosion').html('<audio controls preload id="snexplosionaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/HowBigAreThey.mp3" type="audio/mpeg"></audio>');
+      } 
+      
+      supernovahubble.addEventListener('ended', function() { 
+        //minoanvolcano.webkitExitFullscreen();
+        $("#supernovahubbleholder").css({"visibility":"hidden", "z-index":-1});
+        $("#supernovahubble").css({"z-index":-1});
+        bgsoundbh.play(); 
+      });
+    
+    $("#snexplosion").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioVideoSrc();
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    
+    function goBack() {
+      $.mobile.changePage("sub-space-bh-supernova.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    $("#polb1").on('tap', function() {
+      $("#supernovahubbleholder").css({"visibility":"visible", "z-index":10});
+      $("#supernovahubble").css({"z-index":9});
+      bgsoundbh.pause();
+      supernovahubble.play();
+    });
+    
+    $("#supernovahubble").on('tap', function() {
+      $("#supernovahubbleholder").css({"visibility":"hidden", "z-index":-1});
+      $("#supernovahubble").css({"z-index":-1});
+      bgsoundbh.play();
+      supernovahubble.pause();
+      supernovahubble.currentTime = 0;
+    });
+    /* ******************** */
+    $("#snexplosionaudioplbtn").on('tap', function() {
+      snexplosionaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#snexplosionaudiofbtn").on('tap', function() {
+      var ctime = snexplosionaudio.currentTime;
+      snexplosionaudio.currentTime = ctime + 10;
+    });
+    
+    $("#snexplosionaudiobbtn").on('tap', function() {
+      var ctime = snexplosionaudio.currentTime;
+      snexplosionaudio.currentTime = ctime - 10;
+    });
+    
+    $("#snexplosionaudiopsbtn").on('tap', function() {
+      snexplosionaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

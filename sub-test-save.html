@@ -1,0 +1,301 @@
+<!-- i-C-a -->
+<div data-role="page" id="museum">  
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/myLogic.js"></script>
+  <div data-role="content">
+    <div id="wrapper">
+      <div style="width:140px;float:right;"><a href="#" id="savestate" data-role="button">Save Gallery</a></div>
+      <div id="zoomwrapper">
+          <div id="zoom1" class="zoomProps" >
+             <img src="css/images/museum/chandelier.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom2"class="zoomProps" >
+             <img src="css/images/museum/coins1.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom3" class="zoomProps">
+             <img src="css/images/museum/column1.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom4" class="zoomProps">
+             <img src="css/images/museum/column2.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom5" class="zoomProps">
+             <img src="css/images/museum/columnpedestal1.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom6" class="zoomProps">
+             <img src="css/images/museum/columnpedestal2.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom7" class="zoomProps">
+             <img src="css/images/museum/gargoyle.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom8" class="zoomProps">
+             <img src="css/images/museum/lamp.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom9" class="zoomProps">
+             <img src="css/images/museum/object3.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom10" class="zoomProps">
+             <img src="css/images/museum/scarab.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom11" class="zoomProps">
+             <img src="css/images/museum/shield.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom12" class="zoomProps">
+             <img src="css/images/museum/spear.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom13" class="zoomProps">
+             <img src="css/images/museum/sphinx.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom14" class="zoomProps">
+             <img src="css/images/museum/torch.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom15" class="zoomProps">
+             <img src="css/images/museum/vase1.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom16" class="zoomProps">
+             <img src="css/images/museum/vase2.png" alt="" width="197" height="148" />
+          </div>
+          <div id="zoom17" class="zoomProps">
+             <img src="css/images/museum/vase3.png" alt="" width="197" height="148" />
+          </div>
+      </div><!--/zoomwrapper-->
+    </div>
+    <div class="v-spacer"></div>
+    
+  </div> <!-- end content -->  
+  
+  <script type="text/javascript">
+			$(document).ready(function() {
+			
+				$('.iosSlider').iosSlider({
+					scrollbar: true,
+					snapToChildren: true,
+					desktopClickDrag: true,
+					infiniteSlider: true, 
+					navSlideSelector: $('.iosSliderButtons .button'),
+					scrollbarHeight: '2',
+					scrollbarBorderRadius: '0',
+					scrollbarOpacity: '0.5',
+					onSlideChange: slideContentChange,
+					onSliderLoaded: slideContentChange,
+					keyboardControls: true,
+          scrollbarHide: false,
+          scrollbarLocation: 'bottom'
+				});
+				
+				function slideContentChange(args) {
+					/* indicator */
+					$('.iosSliderButtons .button').removeClass('selected');
+					$('.iosSliderButtons .button:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+				}
+				
+			});
+		</script>
+  <div class = 'iosSlider' style="margin:0px auto 0 auto;">
+		<div class = 'slider' id="slidescontainer">
+      <div class = 'item' id = 'item1'></div>
+			<div class = 'item' id = 'item2'></div>
+			<div class = 'item' id = 'item3'></div>
+			<div class = 'item' id = 'item4'></div>
+      <div class = 'item' id = 'item5'></div>
+			<div class = 'item' id = 'item6'></div>
+			<div class = 'item' id = 'item7'></div>
+			<div class = 'item' id = 'item8'></div>
+			<div class = 'item' id = 'item9'></div>
+			<div class = 'item' id = 'item10'></div>
+			<div class = 'item' id = 'item11'></div>
+			<div class = 'item' id = 'item12'></div>
+			<div class = 'item' id = 'item13'></div>
+			<div class = 'item' id = 'item14'></div>
+			<div class = 'item' id = 'item15'></div>
+			<div class = 'item' id = 'item16'></div>
+			<div class = 'item' id = 'item17'></div>
+    </div>
+	</div><!--end og iosSlider-->
+  <div id="foot-band" style="margin-top:-54px;">
+    <div style="float:left;width:150px;color:#0071bc;margin:-15px 0 0 0px;">Brought to you by<br>Monash University</div>
+    <div style="float:right;width:260px;color:#0071bc;margin:0px 0 0 52px;">Proudly supported by [Partner XYZ]</div>
+    <div style="width:253px;height:2px;color:#0071bc;margin:54px auto -15px;"><a href="home.html"><img src="css/images/5-8/bottomhome.png"></a></div>
+   </div>
+   <script>
+    /****************/
+    $('#item1').on('click', function() {
+      $('#item1').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom1').css('visibility','visible');
+    });
+    $('#item2').on('click', function() {
+      $('#item2').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom2').css('visibility','visible');
+    });
+    $('#item3').on('click', function() {
+      $('#item3').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom3').css('visibility','visible');
+    });
+    /****************/
+    
+    $('#item1').swipe({swipeUp:function() {
+      $('#item1').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom1').css('visibility','visible');
+    }});
+    $('#item2').swipe({swipeUp:function() {
+      $('#item2').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom2').css('visibility','visible');
+    }});
+    $('#item3').swipe({swipeUp:function() {
+      $('#item3').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom3').css('visibility','visible');
+    }});
+    $('#item4').swipe({swipeUp:function() {
+      $('#item4').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom4').css('visibility','visible');
+      alert("sub test save");
+    }});
+    $('#item5').swipe({swipeUp:function() {
+      $('#item5').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom5').css('visibility','visible');
+    }});
+    $('#item6').swipe({swipeUp:function() {
+      $('#item6').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom6').css('visibility','visible');
+    }});
+    $('#item7').swipe({swipeUp:function() {
+      $('#item7').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom7').css('visibility','visible');
+    }});
+    $('#item8').swipe({swipeUp:function() {
+      $('#item8').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom8').css('visibility','visible');
+    }});
+    $('#item9').swipe({swipeUp:function() {
+      $('#item9').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom9').css('visibility','visible');
+    }});
+    $('#item10').swipe({swipeUp:function() {
+      $('#item10').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom10').css('visibility','visible');
+    }});
+    $('#item11').swipe({swipeUp:function() {
+      $('#item11').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom11').css('visibility','visible');
+    }});
+    $('#item12').swipe({swipeUp:function() {
+      $('#item12').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom12').css('visibility','visible');
+    }});
+    $('#item13').swipe({swipeUp:function() {
+      $('#item13').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom13').css('visibility','visible');
+    }});
+    $('#item14').swipe({swipeUp:function() {
+      $('#item14').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom14').css('visibility','visible');
+    }});
+    $('#item15').swipe({swipeUp:function() {
+      $('#item15').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom15').css('visibility','visible');
+    }});
+    $('#item16').swipe({swipeUp:function() {
+      $('#item16').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom16').css('visibility','visible');
+    }});
+    $('#item17').swipe({swipeUp:function() {
+      $('#item17').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom17').css('visibility','visible');
+    }});
+    
+    /*$('#item8').swipe('tap',function() {
+      $('#item8').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom8').css('visibility','visible');
+    }); */
+    
+    $('#savestate').on('tap', function() {
+      var imongnawong = $('#zoomwrapper').html();
+      var itemsleft = $('#slidescontainer').html();
+      //alert("imong nawong "+imongnawong);
+      $.ajax({
+        type: "POST",
+        url: "acgallerysavestate.php",
+        data: { htmlcontent: imongnawong}
+      }).done(function( msgstate ) { });
+      $.ajax({
+        type: "POST",
+        url: "acgallerysaveitems.php",
+        data: { slidesleft: itemsleft}
+      }).done(function( msgitems ) { });
+      alert("Gallery Saved");
+    });
+    
+    $(document).ready(function() {
+      $.ajax({
+        type: "POST",
+        url: "acgalleryopenstate.php",
+      }).done(function( gallerycontent ) {
+        if(gallerycontent.length > 2) {
+          //alert("asdhg"+gallerycontent.length );
+          gallerycontent = gallerycontent.replace(/\\/g, '');
+          $('#zoomwrapper').html(gallerycontent);
+          $.ajax({
+            type: "POST",
+            url: "acgalleryopenitems.php",
+          }).done(function( itemsleft ) {
+              itemsleft = itemsleft.replace(/\\/g, '');
+              $('#slidescontainer').html(itemsleft);
+              $('.iosSlider').iosSlider('update');
+          });
+          var zoom1 = new ZoomView('#zoom1','#zoom1 :first');
+          var zoom2 = new ZoomView('#zoom2','#zoom2 :first');
+          var zoom3 = new ZoomView('#zoom3','#zoom3 :first');
+          var zoom4 = new ZoomView('#zoom4','#zoom4 :first');
+          var zoom5 = new ZoomView('#zoom5','#zoom5 :first');
+          var zoom6 = new ZoomView('#zoom6','#zoom6 :first');
+          var zoom7 = new ZoomView('#zoom7','#zoom7 :first');
+          var zoom8 = new ZoomView('#zoom8','#zoom8 :first');
+          var zoom8 = new ZoomView('#zoom9','#zoom9 :first');
+          var zoom8 = new ZoomView('#zoom10','#zoom10 :first');
+          var zoom8 = new ZoomView('#zoom11','#zoom11 :first');
+          var zoom8 = new ZoomView('#zoom12','#zoom12 :first');
+          var zoom8 = new ZoomView('#zoom13','#zoom13 :first');
+          var zoom8 = new ZoomView('#zoom14','#zoom14 :first');
+          var zoom8 = new ZoomView('#zoom15','#zoom15 :first');
+          var zoom8 = new ZoomView('#zoom16','#zoom16 :first');
+          var zoom8 = new ZoomView('#zoom17','#zoom17 :first');
+        }
+      });
+    });
+    
+    $('#slidescontainer').on('vmousedown','.item', function() {
+        //alert('churva'+this.id);
+        //$(this).trigger('swiping');
+        var thisid = this.id;
+        var numid = thisid.split("m");
+        $(this).swipe({swipeUp:function() {
+          $(this).remove();
+          $('.iosSlider').iosSlider('update');
+          $('#zoom'+numid[1]).css('visibility','visible');
+        }});
+    });
+    
+   </script>
+   <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+</div>

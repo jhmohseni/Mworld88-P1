@@ -1,0 +1,96 @@
+<!-- i-C-a -->
+<div id="binaries" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Binaries</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                  <a id="cygnus-x1link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1.jpg', 'The beautiful Cygnus X-1 black hole sucking gas from its nearby star...')" href="#">click here</a>
+                  <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+                     <img src="images/5-8/Space/Black_Holes/Life_Around_BH/cygnus-x1pol.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="bpcontentbh">
+                    <p>Many of the stars in the night sky are binaries. Binary means two pieces or parts. It this case, binaries are two stars that are locked into orbit around each other. </p>
+                    <p>The brightest star in the night sky, Sirius, is part of a binary. Alpha Centauri, one of the closest stars to Earth, is also part of a binary.</p>
+                    <p>Sometimes we find a star and a black hole orbiting each other. Cygnus X-1 is the best known example of a black hole and a star orbiting each other. </p>
+                    <p>The Cygnus X-1 black hole is sucking gas from the star beside it. As the gas falls towards the black hole, the gas gets so hot that X-rays are produced.</p>
+                    <p>We can see these X-rays with satellites, and make images of what it might look like if we could see it up close. It would be scary but very beautiful!</p>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     <div class="audiopanel">
+      <div class="bbh"><img id="binariesaudiobbtn" src="images/audio/audio-back.png"></div>
+      <div class="plbh"><img id="binariesaudioplbtn" src="images/audio/audio-play.png"></div>
+      <div class="psbh"><img id="binariesaudiopsbtn" src="images/audio/audio-pause.png"></div>
+      <div class="fbh"><img id="binariesaudiofbtn" src="images/audio/audio-forw.png"></div>
+      <div id="actualaudio-binaries" style="visibility:hidden;"></div>
+    </div>
+    <script>
+        sound = new Audio(); // 'sound' is now an audio object
+        (function() {
+                
+            
+            if(sound.canPlayType('audio/mpeg')) {
+                $('#actualaudio-binaries').html('<audio controls preload id="binariesaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page21.mp3" type="audio/mpeg"></audio>');
+            } 
+            
+    
+            $("#binaries").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+
+            //change images path
+            changeImageSrc();
+            findElementsWithBgImage();
+            changeAudioSrc();
+        })();
+
+        $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+        function goBack() {
+            $.mobile.changePage("sub-space-bh-lifeabh.html");
+        }
+        
+        function pausedaudio() {
+          bgsoundbh.play();
+        }
+         
+        function pausebg() {
+          bgsoundbh.pause();
+        }
+        
+        $("#polb1").on('tap', function() {
+          $('#cygnus-x1link')[0].click();
+        });
+        /* ******************** */
+    $("#binariesaudioplbtn").on('tap', function() {
+      binariesaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#binariesaudiofbtn").on('tap', function() {
+      var ctime = binariesaudio.currentTime;
+      binariesaudio.currentTime = ctime + 10;
+    });
+    
+    $("#binariesaudiobbtn").on('tap', function() {
+      var ctime = binariesaudio.currentTime;
+      binariesaudio.currentTime = ctime - 10;
+    });
+    
+    $("#binariesaudiopsbtn").on('tap', function() {
+      binariesaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    </script>
+</div>

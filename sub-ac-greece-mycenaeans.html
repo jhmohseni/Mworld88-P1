@@ -1,0 +1,138 @@
+<!-- i-C-a -->
+<div id="mycenaeans" data-role="page">
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/slidebar.js"></script>
+    <div class="menuhousing"></div>
+    <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+    <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+    <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+    <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+    <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>The Mycenaens</h1></div>
+    <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+
+                <div class="sidebarleft-half">
+                    <a id="goldmasklink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/goldmask.jpg', 'Mycenaen face mask, made out of gold!')" href="#">click here</a>
+                    <a id="mycenaetodaylink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/mycenaetoday.jpg', 'Land inhabited by the Mycenaens, as it looks today')" href="#">click here</a>
+                    <a id="liongatelink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/liongate.jpg', 'The famous lion gate, at the entrance to the citadel of Mycenae')" href="#">click here</a>
+                    <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/liongatepol.jpg" alt="" />
+                        </div>
+                        <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/mycenaetodaypol.jpg" alt="" />
+                        </div>
+                        <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/goldmaskpol.jpg" alt="" />
+                        </div>
+                    </div><!--/zoomwrapper-->
+                </div>
+
+                <div class="bpcontent">        
+                    <p>The Mycenaeans were the first Greek speaking population to live in Greece. The poetry of <a href="#imongnawong" data-rel="popup">Homer</a> suggests that the Mycenaens were a society organized around a king and his court.</p>
+                    <p>The Mycenaens had extensive trade relationships with the Minoans. Archaeologists have found many Minoan records written in Linear B, the language of the Mycenaeans.  It took historians more than 50 years to decode the writing code of Linear B. Become an archaeologist one day, and maybe you too can solve 3000 year old codes!</p>
+                    <p>Mycenaean artists were skilful in crafting jewellery and art from gold and other precious metals.  They also had amazing engineering ability. The entrance to the city at Mycenae was protected via the famous lion gate. The stone above the gate weighed more than a rhinoceros, or a large car!</p>
+                    <p>We still don't know how the Mycenaens managed to lift the stone into place above the gate.  Can you think of a way of lifting such a large stone high up into the air?</p>
+                </div>
+                <div data-role="popup" id="imongnawong" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+                    <div id="node-pop">
+                        <div id="psbutton">
+                          <div id="audiobuttonholder"><a href="#" id="start"><img id="playhomernar" src="images/sound.png" height="30px" width="30px"></a></div>
+                          <div id="actualaudio-homer" style="display: none;">
+                            <audio id="homernar" controls preload style="visibility: hidden" onpause="playagbg()" onplay="pauseagbg()">
+                                <source src="audio/Page6mycene.mp3" type="audio/mpeg">
+                            </audio>
+                          </div>
+                        </div><!-- end of psbutton -->
+                        <p>Homer is perhaps the most important ancient Greek poet. He lived and composed his verses in the first half of the eight century BCE. He was probably a travelling bard from ancient Chios or Smyrna who offered his services for a fee. He may also have been a member of a guild of singers. He wrote the Iliad and the Odyssey, famous stories that have inspired poets, artists, and storytellers ever since" including modern movie makers!"</p>
+                    </div>
+                </div>
+
+                <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+
+            </div><!-- end of content -->
+        </div></div><!--/anisold-->
+    <div class="audiopanel">
+        <div class="bbh"><img id="myceneaudiobbtn" src="images/audio/audio-back.png"></div>
+        <div class="plbh"><img id="myceneaudioplbtn" src="images/audio/audio-play.png"></div>
+        <div class="psbh"><img id="myceneaudiopsbtn" src="images/audio/audio-pause.png"></div>
+        <div class="fbh"><img id="myceneaudiofbtn" src="images/audio/audio-forw.png"></div>
+        <div id="actualaudio-mycene" style="visibility:hidden;"></div>
+    </div>
+    <script>
+        sound = new Audio(); // 'sound' is now an audio object
+        soundpop = new Audio(); // 'sound' is now an audio object
+        (function() {
+      
+            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
+            //$('#node-body-hittites').html(data[0].Body);            
+            if(sound.canPlayType('audio/mpeg')) {
+                $('#actualaudio-mycene').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="mycenenar"><source src="audio/Page5.mp3" type="audio/mpeg"></audio>');
+            } 
+    
+            $("#mycenaeans").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+        
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioSrc();
+        })();
+    
+        (function() {
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 2);
+            $('div#pol2').css("z-index", 1);
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      
+        })();
+        
+        $("#playhomernar").on('tap', function() {
+          homernar.play();
+        });
+    
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-origins.html");
+        }
+        $('.homelinkag').on('tap', function() { 
+            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+    
+        $("#pol3").on('tap', function() {
+            $('#goldmasklink')[0].click();
+        });
+    
+        $("#pol2").on('tap', function() {
+            $('#mycenaetodaylink')[0].click();
+        });
+    
+        $("#pol1").on('tap', function() {
+            $('#liongatelink')[0].click();
+        });
+        /* ******************** */
+        $("#myceneaudioplbtn").on('tap', function() {
+            mycenenar.play();
+            agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+    
+        $("#myceneaudiofbtn").on('tap', function() {
+            var ctime = mycenenar.currentTime;
+            mycenenar.currentTime = ctime + 10;
+        });
+    
+        $("#myceneaudiobbtn").on('tap', function() {
+            var ctime = mycenenar.currentTime;
+            mycenenar.currentTime = ctime - 10;
+        });
+    
+        $("#myceneaudiopsbtn").on('tap', function() {
+            mycenenar.pause();
+        });
+    </script>
+    
+    <script src="js/threecardLogic.js"></script>
+</div>

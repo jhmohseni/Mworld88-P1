@@ -1,0 +1,162 @@
+<!-- i-C-a -->
+<div id="gilgamesh" data-role="page">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Gilgamesh</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div>
+  <div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/hearinbabpol.jpg" alt="" />
+            </div>
+            <div id="backofcard" class="back face center">
+              <p>Gilgamesh in Babylonian</p>
+                <audio id="gilgab" controls preload onpause="playagbg()" onplay="pauseagbg()">
+                    <source src="audio/gilgameshbabylonian.mp3" type="audio/mpeg">
+                </audio>
+                <p><a href="#" id="donegiglgababy">Done</a></p>
+            </div>
+          </div><!--/f1+card-->
+        </div>
+        <div id="f2_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f2_card">
+            <div class="front face">
+              <img id="dopple" src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/hearinengpol.jpg" alt="" />
+            </div>
+            <div id="backofcard2" class="back face center">
+              <p>Gilgamesh in English</p>
+                <audio id="gilgae" controls preload onpause="playagbg()" onplay="pauseagbg()">
+                    <source src="audio/gilgameshenglish.mp3" type="audio/mpeg">
+                </audio>
+                <p><a href="#" id="donegiglgaeng">Done</a></p>
+            </div>
+          </div><!--/f1+card-->
+        </div>
+        <div id="zoomwrapper">  
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/hearinbabpol.jpg" alt="" />
+          </div>
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/hearinengpol.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="bpcontent">
+  		  <p>"The story of Gilgamesh is one of the oldest recorded stories, anywhere on earth.  The story is well over 4,000 years old and we have clay tablets from 3,000 years ago that tell the story.</p>
+  		  <p>Gilgamesh was a Babylonian King, who sought eternal life, according to the story.  Gilgamesh met strange and terrifying creatures, powerful goddesses, and wise elders.  He fought terrible monsters like Humbaba, together with his friend Enkidu.</p>
+  		  <p>In part of the tale, Gilgamesh speaks to the immortal Uta-napisti to ask him about the secret of eternal life.  Here is an excerpt from that part of the story.  You can listen to it in English, or in the ancient language of the Babylonians…!”</p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+      
+    </div><!-- end of content -->
+  </div></div><!--/anisold-->
+  
+  <script>
+    
+    (function() {
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb1').css("z-index", 1);
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      $('#f2_container').css({"visibility":"hidden", "z-index":0});
+	
+	
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=101";
+     $.getJSON( url, function( data ) {
+            
+           /* $('#node-body-hittites').html(data[0].Body);*/
+            
+         });
+    
+      $("#gilgamesh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-babylonians.html");
+      gilgab.pause();
+      gilgae.pause();
+      agsoundbg.play();
+    }
+
+    
+    /*$('#start-hittites').on('click', function() {
+    	$('#actualaudio-hittites').show();
+    });*/
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+	
+	$("#donegiglgababy").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      gilgab.pause();
+      agsoundbg.play();
+      setTimeout(function() {
+        $("#polb1").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //$("#hittites").swipe("enable");
+    });
+    
+    $("#polb1").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
+      //$("#hittites").swipe("disable");
+      //$("#dopple").css({"visibility":"hidden"});
+    });
+    
+    $("#donegiglgaeng").on('tap', function() {
+      $('#f2_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f2_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f2_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f2_card').css({"transform": "rotateY(0deg)"});
+      gilgae.pause();
+      agsoundbg.play();
+      setTimeout(function() {
+        $("#polb2").css({"visibility":"visible", "z-index":3});
+        $('#f2_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //$("#hittites").swipe("enable");
+    });
+    
+    $("#polb2").on('tap', function() {
+      $('#f2_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f2_card').css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
+      $('#f2_card').css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
+      $('#f2_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f2_card').css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
+      //$("#hittites").swipe("disable");
+      //$("#dopple").css({"visibility":"hidden"});
+    });
+	
+	
+  </script>
+   <script src="js/twocardLogicb.js"></script>
+</div>

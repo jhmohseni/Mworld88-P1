@@ -1,0 +1,172 @@
+<!-- i-C-a -->
+<div id="supergiant" data-role="page">
+  <script src="js/hammer.js"></script>
+	<script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholderbh" style="padding-top:14px;"><h1>Supergiant Stars</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="images/5-8/Space/Black_Holes/Where_BH_Come/quiztimepol.jpg">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(images/5-8/Space/Black_Holes/Where_BH_Come/quiztime3back.jpg) no-repeat;">
+              <div style="width:100px;height:40px;position:relative;top:157px;left:200px;">
+                <input type="text" id="tfanswer3" style="background:rgba(255, 255, 255, 0.25);border:none;text-align:center;">
+              </div>
+              <div style="width:324px;height:62px;position:relative;top:156px;left:5x;">
+                <img id="backbtn3" src="images/5-8/Space/Black_Holes/Where_BH_Come/backbtn.png">
+                <img id="submitans3" src="images/5-8/Space/Black_Holes/Where_BH_Come/submitbtn.png">
+              </div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+        <div id="zoomwrapper">    
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Space/Black_Holes/Where_BH_Come/supergiantpol.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Space/Black_Holes/Where_BH_Come/quiztimepol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentbh">
+        <p>There are some stars that can be 50 or even 100 times more massive than our Sun… we call these stars "supergiant stars"!</p>
+        <p>These stars are extremely bright and die young. While our Sun will live for billions of years, these supersized stars will live for just millions of years. </p>			<p>These stars, like all stars, are powered by the <a href="#imongnawong" data-rel="popup">nuclear fusion</a> of elements in their cores.  For most of their lives, these collisions turn hydrogen into helium. </p>			<p>However, once supergiants run out of hydrogen, they start fusing other elements and begin to change temperature, colour and size.  Some become red.  Can you see red stars when you look at the night sky?  You might be looking at a supergiant!</p>
+        <p>Once these changes start, a star doesn’t have long to live.  Something terrible is about to happen... a supernova! </p>
+      </div>
+      
+      <div data-role="popup" id="imongnawong" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+        <div id="node-pop">
+          <p>We are all made of atoms, and the different kinds of atoms are called elements. Oxygen, hydrogen, carbon, iron and gold are all elements.</p>
+          <p>In our daily lives, elements remain unchanged. You cannot easily turn hydrogen into helium or carbon into oxygen.</p>
+          <p>But in the super hot and super dense core of a star, hydrogen atoms are fused together to become helium atoms. This is nuclear fusion, and this process powers all stars including our Sun.</p>
+        </div>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+  <div class="audiopanel">
+    <div class="bbh"><img id="supergiantaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="supergiantaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="supergiantaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="supergiantaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-supergiant" style="visibility:hidden;"></div>
+  </div>
+  
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    (function() {
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
+      $('div#pol1').css("z-index", 1);
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $("#f1_container").css("z-index", 0);      
+      
+           /* $('#node-body-minoans').html(data[0].Body);*/
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-supergiant').html('<audio controls preload id="supergiantaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/supergiant.mp3" type="audio/mpeg"></audio>');
+      } 
+         
+    
+      $("#supergiant").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    
+    
+    $('#start2').on('click', function() {
+    	$('#actualaudio2').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio2').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    $('#startpop').on('click', function() {
+    	$('#actualaudiopop').show();
+    });
+    
+    $("#submitans3").on('tap', function() {
+      var tfans3 = $('#tfanswer3').val();
+      if(tfans3.toLowerCase() == "true") {
+        alert("Correct, you've earned 100 MPoints.");
+      } else {
+        alert("Sorry, that's not right, try again...");
+      }
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-space-bh-comefrom.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    $("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-space-bh-supergiantpage.html", {transition: "slide"});
+    });
+    $("#pol2").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+      //$("#hittites").swipe("disable");
+      //$("#dopple").css({"visibility":"hidden"});
+    });
+    $("#backbtn3").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //$("#hittites").swipe("enable");
+    });
+    /* ******************** */
+    $("#supergiantaudioplbtn").on('tap', function() {
+      supergiantaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#supergiantaudiofbtn").on('tap', function() {
+      var ctime = supergiantaudio.currentTime;
+      supergiantaudio.currentTime = ctime + 10;
+    });
+    
+    $("#supergiantaudiobbtn").on('tap', function() {
+      var ctime = supergiantaudio.currentTime;
+      supergiantaudio.currentTime = ctime - 10;
+    });
+    
+    $("#supergiantaudiopsbtn").on('tap', function() {
+      supergiantaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script><script src="js/twocardLogic.js"></script>
+</div>

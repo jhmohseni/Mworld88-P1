@@ -1,0 +1,86 @@
+<!-- i-C-a -->
+<div data-role="page" id="mathsciencemore">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="bonus-msm" class="talkbubble" style="background:url(images/5-8/Ancient_Civilizations/Greece/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:300px;top:40px;visibility:hidden;"></div><!--/bonus-msm-->
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Math Science and More</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="bpcontent">
+        <p>In mathematics and science, the Ancient Greeks developed many new fields of knowledge and principles that formed the basis for many later developments. Greek mathematicians Thales and Pythagoras developed mathematical principles that are still used today and were named after them.  Can you explain the Pythagoras theory?</p>
+        <p>AncientThe Ancient Greeks believed in the idea of a healthy mind in a healthy body.  They sought to improve their bodies through physical exercise in public ‘gyms’ of the time.  They inspired us to continue the Olympic Games in modern times with their ideals of honest competition and love for victory above material gains.</p>
+        <p>Hippokrates, from the Greek island of Kos, is considered the ‘father’ of western medicine.  He introduced many advances in the study and practice of medicine.  He dismissed people’s beliefs in disease as a form of punishment by the gods and stressed the importance of clinical diagnosis and treatment.  The Hippocratic Oath used by doctors today, which commits them to practice medicine honestly and without prejudice, is named after Hippokrates.</p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+      
+    </div> <!-- end content -->  
+   </div></div><!--/anisold-->
+   <div class="audiopanel">
+    <div class="bbh"><img id="msmaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="msmaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="msmaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="msmaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-msm" style="visibility:hidden;"></div>
+  </div>
+   <section class="container" style="height:670px;margin-top:0px;">
+      <div class="spriteComing"></div>
+    </section>
+    <script src="js/spritespin.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="js/script.js"></script>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    if(sound.canPlayType('audio/mpeg')) {
+      $('#actualaudio-msm').html('<audio id="msmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page30.mp3" type="audio/mpeg"></audio>');
+    } 
+   
+    $("#mathsciencemore").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+    //change images path
+    changeImageSrc();
+    findElementsWithBgImage();
+    changeAudioSrc();
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-legacy.html");
+    }
+    
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $("#bonus-msm").on('tap', function() {
+        $.mobile.changePage("game-ag3.html");
+      })
+      
+      /* ******************** */
+    $("#msmaudioplbtn").on('tap', function() {
+      msmaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#msmaudiofbtn").on('tap', function() {
+      var ctime = msmaudio.currentTime;
+      msmaudio.currentTime = ctime + 10;
+    });
+    
+    $("#msmaudiobbtn").on('tap', function() {
+      var ctime = msmaudio.currentTime;
+      msmaudio.currentTime = ctime - 10;
+    });
+    
+    $("#msmaudiopsbtn").on('tap', function() {
+      msmaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+    <script src="js/twocardLogic.js"></script>
+</div> <!--//home-->

@@ -1,0 +1,157 @@
+<!-- i-C-a -->
+<div id="minoansend" data-role="page">
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/slidebar.js"></script>
+    <div class="menuhousing"></div>
+    <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+    <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+    <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+    <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+    <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>The End of the Minoans</h1></div>
+    <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                    <a id="santorinilink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/santorini.jpg', 'The island of Santorini today… Can you see the edge of volcano?')" href="#">click here</a>
+                    <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+                        <div id="f1_card">
+                            <div class="front face">
+                                <img id="dopple" src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/santoriniquiztimepol.jpg" alt="" />
+                            </div>
+                            <div id="backofcard" class="back face center">
+                                <p class="quizquestion">
+                                    Which country is the island of<br/>
+                                    Santorini part of today?<br/><br/>
+                                    <a class="quizanswerselection">(a) Greece</a>
+                                    <a class="quizanswerselection">(b) Turkey</a>
+                                    <a class="quizanswerselection">(c) Italy</a><br/>
+                                    <a class="quizanswerselection">(d) Crete</a>
+                                </p>
+                            </div>
+                        </div><!--/f1+card-->
+                    </div>
+                    <div id="zoomwrapper">
+                        <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/santorinipol.jpg" alt="" />
+                        </div>
+                        <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/santoriniquiztimepol.jpg" alt="" />
+                        </div>
+                    </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontent">    
+                    <p>No one really knows for sure how the Minoan civilisation ended.  Most historians think it was linked to the huge explosion of a volcano on the island of Thera.</p>
+                    <p>Today Thera is called Santorini. It's a beautiful island, not far from the mainland of Greece. But about 3,600 years ago this island was part of a large volcano that exploded and sent ash and a large tidal wave across nearby islands.</p>
+                    <p>The damage from the explosion weakened the Minoan civilisation, allowing the Mycenaeans to become culturally dominant.</p>
+                </div>
+
+                <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+
+            </div><!--end of content-->
+        </div></div><!--/anisold-->
+    <div class="audiopanel">
+        <div class="bbh"><img id="minoansendaudiobbtn" src="images/audio/audio-back.png"></div>
+        <div class="plbh"><img id="minoansendaudioplbtn" src="images/audio/audio-play.png"></div>
+        <div class="psbh"><img id="minoansendaudiopsbtn" src="images/audio/audio-pause.png"></div>
+        <div class="fbh"><img id="minoansendaudiofbtn" src="images/audio/audio-forw.png"></div>
+        <div id="actualaudio-minoansend" style="visibility:hidden;"></div>
+    </div>
+    <script>
+        sound = new Audio(); // 'sound' is now an audio object
+        (function() {
+            $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#polb1').css("z-index", 1);
+            $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+            $('#f1_container').css({"visibility":"hidden", "z-index":0});
+    
+     
+            //$('#node-body-minoans').html(data[0].Body);
+            
+            if(sound.canPlayType('audio/mpeg')) {
+                $('#actualaudio-minoansend').html('<audio id="minoansendaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page8b.mp3" type="audio/mpeg"></audio>');
+            } 
+         
+    
+            $("#minoansend").swipe( { swipeRight:goBack, allowPageScroll:"auto", excludedElements:$.fn.swipe.defaults.excludedElements+", #backofcard"} );
+    
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioSrc();
+        })();
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-minoans.html");
+        }
+    
+        $('#start-minoansend').on('click', function() {
+            $('#actualaudio-minoansend').show();
+            var oldHeight = $('#node-body-holder').height();
+            var newHeight = oldHeight - $('#actualaudio-minoansend').height();
+            $('#node-body-holder').height(newHeight);
+        });
+        $('.homelinkag').on('tap', function() { 
+            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+        $("#polb1").on('tap', function() {
+            $('#santorinilink')[0].click();
+        });
+        $("#f1_container").on('tap', function() {
+            $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+            $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+            $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+            $('#f1_card').css({"transform": "rotateY(0deg)"});
+            setTimeout(function() {
+                $("#polb2").css({"visibility":"visible", "z-index":2});
+                $('#f1_container').css({"visibility":"hidden", "z-index":0});
+            }, 1000);
+        });
+    
+        $("#polb2").on('tap', function() {
+            $('#f1_container').css({"visibility":"visible", "z-index":10});
+            $(this).css({"visibility":"hidden"});
+            $('#f1_card').css({"-webkit-transform": "rotateY(180deg)", "-webkit-box-shadow" : "-5px 5px 5px #aaa;"});
+            $('#f1_card').css({"-moz-transform": "rotateY(180deg)", "-moz-box-shadow" : "-5px 5px 5px #aaa;"});
+            $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+            $('#f1_card').css({"transform": "rotateY(180deg)", "box-shadow" : "-5px 5px 5px #aaa;"});
+            //$("#hittites").swipe("disable");
+            //$("#dopple").css({"visibility":"hidden"});
+        });
+        /* ******************** */
+        $("#minoansendaudioplbtn").on('tap', function() {
+            minoansendaudio.play();
+            agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+    
+        $("#minoansendaudiofbtn").on('tap', function() {
+            var ctime = minoansendaudio.currentTime;
+            minoansendaudio.currentTime = ctime + 10;
+        });
+    
+        $("#minoansendaudiobbtn").on('tap', function() {
+            var ctime = minoansendaudio.currentTime;
+            minoansendaudio.currentTime = ctime - 10;
+        });
+    
+        $("#minoansendaudiopsbtn").on('tap', function() {
+            minoansendaudio.pause();
+        });
+        
+        $(".quizanswerselection").click(function() {
+            var answer = $(this).text().substr(1, 1);
+            if (answer == "a") {
+                alert("Correct");
+            } else if (answer == "b") {
+                alert("Wrong");
+            } else if (answer == "c") {
+                alert("Wrong");
+            } else if (answer == "d") {
+                alert("Wrong");
+            }
+        });
+    </script>
+    <script src="js/twocardLogicb.js"></script>
+</div>

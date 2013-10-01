@@ -1,0 +1,152 @@
+<!-- i-C-a -->
+<div id="supernova" data-role="page">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholderbh" style="padding-top:14px;"><h1>Supernova</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="zoomwrapper">    
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Space/Black_Holes/Where_BH_Come/supexplodepol.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Space/Black_Holes/Where_BH_Come/supgoldpol.jpg" alt="" />
+          </div>
+          <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+              <img src="images/5-8/Space/Black_Holes/Where_BH_Come/supbigpol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentbh">
+        <p>When a supergiant star runs out of fuel, it starts to collapse.  The collapse squeezes and heats the remains of the star, causing a series of massive explosions, called a supernova!</p>
+        <p>A supernova explosion is so violent that the star is torn apart, blowing hydrogen, helium and other elements out into space.  These elements forms the materials that make up the rest of the Universe, including the Earth and our very own bodies!</p>
+        <p>In this sense, we are all made from star dust.  Did you know that gold also comes from the dust of a supernova?!</p>
+        <p>The core of the star collapses during the supernova, leaving behind either a dense neutron star or a black hole...</p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="supernovaaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="supernovaaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="supernovaaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="supernovaaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-supernova" style="visibility:hidden;"></div>
+  </div>
+  <div id="supernovaesoholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+      <div class="previdcontainer">
+        <video id="supernovaeso" width="1024" height="748" preload>
+          <source src="video/supernovaeso.m4v" type="video/mp4">
+        </video>
+      </div>
+  </div> 
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    soundpop = new Audio(); // 'sound' is now an audio object
+    (function() {
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-5deg)");
+      
+      supernovaeso.addEventListener('ended', function() { 
+        //minoanvolcano.webkitExitFullscreen();
+        $("#supernovaesoholder").css({"visibility":"hidden", "z-index":-1});
+        $("#supernovaeso").css({"z-index":-1});
+        bgsoundbh.play(); 
+      });
+     
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-supernova').html('<audio controls preload id="supernovaaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/SuperNova.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#supernova").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioVideoSrc();
+    })();
+    
+    
+    $('#vidbtn-supernova').on('tap', function() { bgsoundbh.pause(); });
+    $('#html5-lightbox-overlay').on('tap', function() { bgsoundbh.play(); });
+    $('#html5-close').on('tap', function() { bgsoundbh.play(); });
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    
+    $('#start2').on('click', function() {
+    	$('#actualaudio2').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio2').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-space-bh-comefrom.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }			
+    
+    $("#supernovaeso").on('tap', function() {
+      $("#supernovaesoholder").css({"visibility":"hidden", "z-index":-1});
+      $("#supernovaeso").css({"z-index":-1});
+      bgsoundbh.play();
+      supernovaeso.pause();
+      supernovaeso.currentTime = 0;
+    });
+    
+    $("#pol3").on('tap', function() {
+      $.mobile.changePage("sub-space-bh-snexplosion.html", {transition: "slide"});
+    });
+    
+    $("#pol2").on('tap', function() {
+      $.mobile.changePage("sub-space-bh-formgold.html", {transition: "slide"});
+    });
+    
+    $("#pol1").on('tap', function() {
+      $("#supernovaesoholder").css({"visibility":"visible", "z-index":10});
+      $("#supernovaeso").css({"z-index":9});
+      bgsoundbh.pause();
+      supernovaeso.play();
+    });
+    /* ******************** */
+    $("#supernovaaudioplbtn").on('tap', function() {
+      supernovaaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#supernovaaudiofbtn").on('tap', function() {
+      var ctime = supernovaaudio.currentTime;
+      supernovaaudio.currentTime = ctime + 10;
+    });
+    
+    $("#supernovaaudiobbtn").on('tap', function() {
+      var ctime = supernovaaudio.currentTime;
+      supernovaaudio.currentTime = ctime - 10;
+    });
+    
+    $("#supernovaaudiopsbtn").on('tap', function() {
+      supernovaaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script><script src="js/threecardLogic.js"></script>
+</div>

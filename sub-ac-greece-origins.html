@@ -1,0 +1,102 @@
+<!-- i-C-a -->
+<div id="originsofgreece" data-role="page">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="navtitleholder"><h1>Origins of<br>Ancient Greece</h1></div>
+  
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="nav-content">
+        <p>The first Greek-speaking tribes, called the Mycenaeans, arrived in the Greek mainland nearly 4,000 years ago.  Before that, the area was inhabited by indigenous people, sometimes called the Pelasgians.  Meanwhile, the lands to the east of Greece were dominated by the Hittite civilisation.</p>
+        <p>The Mycenaean civilisation was greatly influenced by the Minoans of Crete with whom they had extensive trade links.  Around the same time, more Greek tribes settled in Greece, among them the Ionians and the Aeolians. </p>
+        <p>Last to come were the Dorians who invaded Greece around 1200 BCE. The invasion of the Dorians led to the end of the Mycenaean culture and the beginning of the Greek Dark Ages (1200-950 BCE). Nothing survives from the Greek world during that time - no building, no artefact, and no writing.</p>
+        <p>Click on the links to find out more...</p>
+      </div>
+      
+      <div class="navbtn1">
+        <p><a href='sub-ac-greece-mycenaeans.html' data-transition="slide"><img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/mycenaeansbtn.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href='sub-ac-greece-hittites.html' data-transition="slide"><img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/hittitesbtn.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href='sub-ac-greece-tribes.html' data-transition="slide"><img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/greektribesbtn.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href='sub-ac-greece-minoans.html' data-transition="slide" ><img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/minoansbtn.png"></a></p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+      
+    </div> <!--end of content-->
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="oagaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="oagaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="oagaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="oagaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-oag" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    
+    (function() {
+      //var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=7";
+     //$.getJSON( url, function( data ) {
+            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
+            //$('#node-body-oag').html(data[0].Body);
+            
+            if(sound.canPlayType('audio/mpeg')) {
+              $('#actualaudio-oag').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="oagnar"><source src="audio/Page2.mp3" type="audio/mpeg"></audio>');
+            } 
+         //});
+    
+          
+          $("#originsofgreece").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+
+    $('#start-oag').on('click', function() {
+      $('#actualaudio-oag').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-oag').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece.html");
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    /* ******************** */
+    $("#oagaudioplbtn").on('tap', function() {
+      oagnar.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#oagaudiofbtn").on('tap', function() {
+      var ctime = oagnar.currentTime;
+      oagnar.currentTime = ctime + 10;
+    });
+    
+    $("#oagaudiobbtn").on('tap', function() {
+      var ctime = oagnar.currentTime;
+      oagnar.currentTime = ctime - 10;
+    });
+    
+    $("#oagaudiopsbtn").on('tap', function() {
+      oagnar.pause();
+    });
+  </script>
+</div>

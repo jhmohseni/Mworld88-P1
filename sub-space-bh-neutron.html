@@ -1,0 +1,110 @@
+<!-- i-C-a -->
+<div id="neutron" data-role="page">
+  <script src="js/hammer.js"></script>	
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="navtitleholderbh" style="padding-top:14px;"><h1>Neutron Star</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="crabnebulalink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Where_BH_Come/crabnebula.jpg', 'The spectacular Crab Nebula was created by a supernova that was recorded by astronomers in China nearly 1,000 years ago!')" href="#">click here</a>
+        <a id="crabnebulanslink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Space/Black_Holes/Where_BH_Come/crabnebulans.jpg', 'See the very bright dot in the middle of this picture – that’s the neutron star at the heart of Crab Nebula!')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Space/Black_Holes/Where_BH_Come/crabnebulapol.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Space/Black_Holes/Where_BH_Come/crabnebulanspol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentbh">
+        <p>When a supernova has exploded, the star’s core collapses.  This forms a neutron star, or if the core keeps collapsing, it forms a black hole. </p>			
+        <p>A neutron star is a small but very dense star, made up of very small particles called neutrons.</p>			
+        <p>Being dense means that a little bit of neutron star weighs an awful lot.  A piece of neutron star the size of a grain of sand would weigh as much as a large airplane!</p>			
+        <p>Despite being very heavy, neutron stars can spin around very fast. Some neutron stars can spin around hundreds of times each second!</p>			
+        <p>A thousand years ago there was a large supernova explosion that was so bright it could be seen on earth without any telescopes!  The remains of this supernova are called Crab Nebula and they contain a small, very dense neutron star.</p>					  
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhome.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="neutronaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="neutronaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="neutronaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="neutronaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-neutron" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    soundpop = new Audio(); // 'sound' is now an audio object
+    (function() {
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
+      $('div#pol1').css("z-index", 1);      
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-neutron').html('<audio controls preload id="neutronaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/NeutronStar.mp3" type="audio/mpeg"></audio>');
+      } 
+
+    $("#neutron").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+
+
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    
+    function goBack() {
+      $.mobile.changePage("sub-space-bh-comefrom.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+  $("#pol1").on('tap', function() {      
+    $('#crabnebulalink')[0].click();
+  });  
+	$("#pol2").on('tap', function() {
+    $('#crabnebulanslink')[0].click();    
+  });    
+
+    /* ******************** */
+    $("#neutronaudioplbtn").on('tap', function() {
+      neutronaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#neutronaudiofbtn").on('tap', function() {
+      var ctime = neutronaudio.currentTime;
+      neutronaudio.currentTime = ctime + 10;
+    });
+    
+    $("#neutronaudiobbtn").on('tap', function() {
+      var ctime = neutronaudio.currentTime;
+      neutronaudio.currentTime = ctime - 10;
+    });
+    
+    $("#neutronaudiopsbtn").on('tap', function() {
+      neutronaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });  
+  </script>
+  <script src="js/twocardLogic.js"></script>
+</div>

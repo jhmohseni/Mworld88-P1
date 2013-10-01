@@ -1,0 +1,45 @@
+<!-- i-C-a -->
+<div id="seebh" data-role="page">	
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholderbh" style="padding-top:14px;"><h1>How can you see a Black Hole?</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+
+      </div>
+      
+      <div class="bpcontentbh">
+        <p>How do astronomers find black holes? They are black after all.</p>
+        <p>The trick is to look for the things that are very close to the black hole.  Things that are either caused by a black hole, or are evidence of a black hole's existence. For example, stars that are moving very fast - or gamma rays and X-rays coming from close to the black hole itself.</p>
+        <p>To see such things, astronomers need telescopes that can see objects far, far away. The air on earth makes things appear blurry, but astronomers can get around this by putting telescopes in space.  Then we can get really clear pictures of the wonders of the Universe and learn more about things like black holes.</p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    (function() {			
+      $("#seebh").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    //change images path
+    changeImageSrc();
+    findElementsWithBgImage();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-space-bh-blackhole.html");
+    }
+    
+  </script>
+</div>

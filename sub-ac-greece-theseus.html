@@ -1,0 +1,86 @@
+<!-- i-C-a -->
+<div id="theseus" data-role="page" style="height:748px !important; overflow:hidden;">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="anisold">
+    <div data-role="content" class="kidzcontent">
+      <div class="storypagetitle"><h1>Theseus and the Minotaur</h1></div>
+      <div id="node-body-holder" class="storypage" style="margin-top:32px;">
+            <p>Myths were very important to the ancient Greeks.  They used myths to explain their past, their customs and their way of life. Here is one of ancient Greece's most famous myths.  If you like mazes and labyrinths, you may have heard it before...!</p>
+            <p>After his defeat of Athens, King Minos imposed a terrible punishment upon the city. Every nine years the Athenians were required to send seven boys and seven girls to Crete to be devoured by the Minotaur.  The Minotaur was the half man-half bull son of King Minos, who lived in the Labyrinth, an elaborate, underground maze from which no one could escape.</p>
+            <p>Nine years passed and everyone at Athens was sad at the thought of having to send their dear children to be devoured by the Minotaur. Theseus, son of the Greek King Aegeus, decided to go to Crete with the children and kill the Minotaur. The Athenian ship left for Crete with black sails to indicate the sad fate of the children it carried.  Theseus promised to change the sails to white if he was able to kill the Minotaur.</p>
+            <p>Once he reached Crete, Theseus was helped by Ariadne, the youngest daughter of Minos, who told him how to find his way out of the Labyrinth. She told him to tie a ball of string near the entrance of the Labyrinth and let it unfold as he made his way into the dark chamber. By retracing the string Theseus would be able to find his way out. Ariadne also gave Theseus a sword to kill the Minotaur.  He promised to take her back with him to Athens as his wife.</p>
+            <p>Theseus didn't keep his promise to Ariadne; he abandoned her on the island of Naxos. He also forgot the promise he had given to his old father Aegeus and did not change the sails of his ship to white ones.  When Aegeus watched the sea for a sign of his son, he saw the black sails of the ship and thought that his son had been killed by the Minotaur.  Aegeus threw himself from the Acropolis and died. Some say he fell into the sea and that is why it was called the Aegean Sea.</p>
+        
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+      
+    </div> <!-- end content -->  
+  </div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="theseusaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="theseusaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="theseusaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="theseusaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-theseus" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    (function() {
+      
+            //$('#node-body').html(data[0].Body);
+    if(sound.canPlayType('audio/mpeg')) {
+      $('#actualaudio-theseus').html('<audio id="theseusaudio" controls preload  onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page9.mp3" type="audio/mpeg"></audio>');
+    } 
+    
+    $("#theseus").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-minoans.html");
+      theseusaudiobg.pause();
+      agsoundbg.play();
+    }
+    
+    function pausethbg() {
+      theseusaudiobg.pause();
+    }
+    
+    function playthbg() {
+      //theseusaudiobg.play();
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    /* ******************** */
+    $("#theseusaudioplbtn").on('tap', function() {
+      theseusaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#theseusaudiofbtn").on('tap', function() {
+      var ctime = theseusaudio.currentTime;
+      theseusaudio.currentTime = ctime + 10;
+    });
+    
+    $("#theseusaudiobbtn").on('tap', function() {
+      var ctime = theseusaudio.currentTime;
+      theseusaudio.currentTime = ctime - 10;
+    });
+    
+    $("#theseusaudiopsbtn").on('tap', function() {
+      theseusaudio.pause();
+    });
+  </script>
+</div>

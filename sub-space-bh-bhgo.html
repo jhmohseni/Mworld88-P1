@@ -1,0 +1,99 @@
+<!-- i-C-a -->
+<div id="bhgo" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="bonus-bh2" class="talkbubble" style=" width:473px;height:296px;position:absolute;left:300px;top:40px;visibility:hidden;"></div><!--/bonus-msm-->
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Where do Black Holes Go?</h1></div>
+  <div id="anisold">
+      <div id="spacechar">&nbsp;
+          <div data-role="content" class="kidzcontent">
+              <div class="v-spacer"></div>
+              <div class="sidebarleft-half">
+              </div>
+              <div class="bpcontent">
+                  <p>Where do black holes go?  If you keep feeding them with gas and dust from nearby stars, they just keep getting bigger and bigger.  But what if you just leave them alone?</p>
+                  <p>The astrophysicist Stephen Hawking has proposed that black holes can very gradually leak energy, and thus lose mass. This process, called Hawking radiation, would result in black holes evaporating away. </p>
+                  <p>The smallest black holes would disappear almost instantly, while black holes the mass of the Sun would survive for a very long time. Not a billion years, not a trillion years, but far far longer!</p>
+                  <p>Maybe you can become an astrophysicist one day and learn more about the mysteries of black holes!</p>
+              </div>
+              <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+
+          </div><!--end of content-->
+      </div>
+  </div><!--/anisold-->
+    <section class="container" style="height:670px;margin-top:-600px;">
+      <div class="spriteComing"></div>
+    </section>
+    <div class="audiopanel">
+      <div class="bbh"><img id="bhgoaudiobbtn" src="images/audio/audio-back.png"></div>
+      <div class="plbh"><img id="bhgoaudioplbtn" src="images/audio/audio-play.png"></div>
+      <div class="psbh"><img id="bhgoaudiopsbtn" src="images/audio/audio-pause.png"></div>
+      <div class="fbh"><img id="bhgoaudiofbtn" src="images/audio/audio-forw.png"></div>
+      <div id="actualaudio-bhgo" style="visibility:hidden;"></div>
+    </div>
+    
+    <script src="js/spritespin.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="js/script.js"></script>
+    <script>
+        sound = new Audio(); // 'sound' is now an audio object
+        (function() {
+          if(sound.canPlayType('audio/mpeg')) {
+              $('#actualaudio-bhgo').html('<audio controls preload id="bhgoaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page22_0.mp3" type="audio/mpeg"></audio>');
+          } 
+    
+            $("#bhgo").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+          
+          var bonusGameImage = 'url("'+appBasePath+'images/5-8/Space/Black_Holes/game/bonustalk.png")';
+          $('#bonus-bh2').css({'background-image': bonusGameImage, 'background-repeat': 'no-repeat'});
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioSrc();
+        })();
+
+        $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+        function goBack() {
+            $.mobile.changePage("sub-space-bh.html");
+        }
+    
+        function pausedaudio() {
+            bgsoundbh.play();
+        }
+    
+        function pausebg() {
+            bgsoundbh.pause();
+        }
+        
+        $("#bonus-bh2").on('tap', function() {
+          bhcreator.play();bgsoundbh.pause();
+          $.mobile.changePage("game-bh1.html", {transition: "flip"});
+        })
+        
+/* ******************** */
+    $("#bhgoaudioplbtn").on('tap', function() {
+      bhgoaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#bhgoaudiofbtn").on('tap', function() {
+      var ctime = bhgoaudio.currentTime;
+      bhgoaudio.currentTime = ctime + 10;
+    });
+    
+    $("#bhgoaudiobbtn").on('tap', function() {
+      var ctime = bhgoaudio.currentTime;
+      bhgoaudio.currentTime = ctime - 10;
+    });
+    
+    $("#bhgoaudiopsbtn").on('tap', function() {
+      bhgoaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+
+    </script>
+</div>

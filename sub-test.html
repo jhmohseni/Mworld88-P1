@@ -1,0 +1,132 @@
+<!-- i-C-a -->
+<div data-role="page" id="test">  
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/myLogic.js"></script>
+  <div data-role="content">
+    <div id="wrapper">
+      
+      <div id="zoomwrapper">
+          <div id="zoom" class="zoomProps" >
+             <img src="css/images/5-8/Ancient_Civilizations/agbtn.png" alt="" width="197" height="185" />
+          </div>
+          <div id="zoom2"class="zoomProps" >
+             <img src="css/images/5-8/Ancient_Civilizations/cdbtn.png" alt="" width="197" height="185" />
+          </div>
+          <div id="zoom3" class="zoomProps">
+             <img src="css/images/5-8/Ancient_Civilizations/aibtn.png" alt="" width="197" height="185" />
+          </div>
+          <div id="zoom4" class="zoomProps">
+             <img src="css/images/5-8/Ancient_Civilizations/aztecbtn.png" alt="" width="197" height="185" />
+          </div>
+          <div id="zoom5" class="zoomProps">
+             <img src="css/images/5-8/Ancient_Civilizations/romebtn.png" alt="" width="197" height="185" />
+          </div>
+          <div id="zoom6" class="zoomProps">
+             <img src="css/images/5-8/Ancient_Civilizations/egyptbtn.png" alt="" width="197" height="185" />
+          </div>
+          <div id="zoom7" class="zoomProps">
+             <img src="css/images/5-8/Ancient_Civilizations/eabtn.png" alt="" width="197" height="185" />
+          </div>
+          <div id="zoom8" class="zoomProps">
+             <img src="css/images/5-8/Ancient_Civilizations/incasbtn.png" alt="" width="197" height="185" />
+          </div>
+      </div><!--/zoomwrapper-->
+    </div>
+    <div class="v-spacer"></div>
+    
+  </div> <!-- end content -->  
+  
+  <script type="text/javascript">
+			$(document).ready(function() {
+			
+				$('.iosSlider').iosSlider({
+					scrollbar: true,
+					snapToChildren: true,
+					desktopClickDrag: true,
+					infiniteSlider: true, 
+					navSlideSelector: $('.iosSliderButtons .button'),
+					scrollbarHeight: '2',
+					scrollbarBorderRadius: '0',
+					scrollbarOpacity: '0.5',
+					onSlideChange: slideContentChange,
+					onSliderLoaded: slideContentChange,
+					keyboardControls: true,
+          scrollbarHide: false,
+          scrollbarLocation: 'bottom'
+				});
+				
+				function slideContentChange(args) {
+					/* indicator */
+					$('.iosSliderButtons .button').removeClass('selected');
+					$('.iosSliderButtons .button:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+				}
+				
+			});
+		</script>
+  <div class = 'iosSlider' style="margin:0px auto 0 auto;">
+		<div class = 'slider' id="slidescontainer">
+      <div class = 'item' id = 'item1'></div>
+			<div class = 'item' id = 'item2'></div>
+			<div class = 'item' id = 'item3'></div>
+			<div class = 'item' id = 'item4'></div>
+      <div class = 'item' id = 'item5'></div>
+			<div class = 'item' id = 'item6'></div>
+			<div class = 'item' id = 'item7'></div>
+			<div class = 'item' id = 'item8'></div>
+    </div>
+	</div><!--end og iosSlider-->
+  <div id="foot-band" style="margin-top:-54px;">
+    <div style="float:left;width:150px;color:#0071bc;margin:-15px 0 0 0px;">Brought to you by<br>Monash University</div>
+    <div style="float:right;width:260px;color:#0071bc;margin:0px 0 0 52px;">Proudly supported by [Partner XYZ]</div>
+    <div style="width:253px;height:2px;color:#0071bc;margin:54px auto -15px;"><a href="home.html"><img src="css/images/5-8/bottomhome.png"></a></div>
+   </div>
+   <script>
+    $('#item1').swipe({swipeUp:function() {
+      $('#item1').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom').css('visibility','visible');
+    }});
+    $('#item2').swipe({swipeUp:function() {
+      $('#item2').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom2').css('visibility','visible');
+    }});
+    $('#item3').swipe({swipeUp:function() {
+      $('#item3').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom3').css('visibility','visible');
+    }});
+    $('#item4').swipe({swipeUp:function() {
+      $('#item4').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom4').css('visibility','visible');
+      alert("seb test");
+    }});
+    $('#item5').swipe({swipeUp:function() {
+      $('#item5').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom5').css('visibility','visible');
+    }});
+    $('#item6').swipe({swipeUp:function() {
+      $('#item6').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom6').css('visibility','visible');
+    }});
+    $('#item7').swipe({swipeUp:function() {
+      $('#item7').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom7').css('visibility','visible');
+    }});
+    $('#item8').on('tap', function() {
+      $('#item8').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom8').css('visibility','visible');
+    });
+    $('#item8').swipe({swipeUp:function() {
+      $('#item8').remove();
+      $('.iosSlider').iosSlider('update');
+      $('#zoom8').css('visibility','visible');
+    }}); 
+   </script>
+</div>

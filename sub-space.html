@@ -1,0 +1,90 @@
+<!-- i-C-a -->
+<div data-role="page" id="space">
+    <div data-role="content" style="overflow:hidden !important;">
+      <div id="titleb-holder"><h1 style="margin-top:184px;">Space</h1></div>
+      
+      <div style="width:90%;margin:auto;">
+        <!--<div class="aclink"><a href="sub-space-bh.html" data-transition="slide"><img src="css/images/5-8/Space/blackholesbtn.png"></a></div>-->
+        <div class="aclink"><a href="#" id="bhmovielink"><img src="css/images/5-8/Space/blackholesbtn.png"></a></div>
+        <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Space/missiontomarsbtn.png"></a></div>
+        <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Space/bigbangbtn.png"></a></div>
+        <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Space/galaxiesbtn.png"></a></div><br>
+        <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Space/spacetravelbtn.png"></a></div>
+        <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Space/caambtn.png"></a></div>
+        <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Space/moontrekbtn.png"></a></div>
+        <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Space/closeststarbtn.png"></a></div>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkspace"><img src="css/images/5-8/bottomhomebh.png"></a></div>
+    
+      <div id="pre-bh" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;">
+        <div class="previdcontainer">
+          <video id="bhvideo" width="1024" height="722" preload>
+            <source src="video/blackhole_3-SD_for_Apple_Devices.m4v" type="video/mp4">
+         </video>
+       </div>
+      </div> <!--/pre-bh -->
+  </div><!--end of content-->
+  <script>
+    $(function() {
+      changeVideoSrc();
+      // changeImageSrc();
+      // findElementsWithBgImage();
+      $("#space").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      bhvideo.addEventListener('ended', function() { 
+            //agvideo.webkitExitFullscreen();
+            bgsoundbh.play(); 
+            $.mobile.changePage("sub-space-bh.html");  
+          });
+    });
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      mainaudiobg.play();
+      spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+    }
+    
+    $('.homelinkspace').on('tap', function() { 
+      mainaudiobg.play(); spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+    });
+    
+    $('#bhmovielink').on('tap', function() { 
+      spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+      
+      //var spacepage = "sub-space.html";
+      if(app.firstRun.space.bh){
+        if(!checkConnection()){
+          navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
+          return false;
+        }
+        var spacepage = "spaceloading.html";
+        sessionStorage.assetsName = 'bh';
+        sessionStorage.nextPage = "sub-space.html";
+        $.mobile.changePage(spacepage);
+      }
+      else {
+        $("#pre-bh").css({"visibility":"visible", "z-index":2});
+        bhvideo.play();        
+      }
+      //agvideo.webkitEnterFullscreen();
+    });
+    
+    $("#bhvideo").on('tap', function() {
+      bhvideo.pause();
+      bhvideo.currentTime = 0;
+      bgsoundbh.play();
+      $.mobile.changePage("sub-space-bh.html");
+    });
+    
+
+    $('#space').live('pagebeforeshow', function(evt, data){
+      if(data.prevPage.attr('id') == 'spaceLoading'){
+        if(!app.firstRun.space.bh){
+          $("#pre-bh").css({"visibility":"visible", "z-index":2});
+          bhvideo.play();
+        }
+      }
+    });
+      </script>
+</div>

@@ -1,0 +1,122 @@
+<!-- i-C-a -->
+<div id="architecture" data-role="page">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Greek Architecture</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="sidebarleft-half">
+        <a id="archi1link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi1.jpg', 'The Walhalla memorial in Germany... can you see the similarity to the Parthenon?')" href="#">click here</a>
+        <a id="archi2link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi2.jpg', 'The Supreme Court building in Washington DC, United States... the entrance built in the Greek style')" href="#">click here</a>
+        <a id="archi3link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi3.jpg', 'Greek columns of the Lincoln Memorial in Washington DC, United States')" href="#">click here</a>
+        <a id="archi4link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi4.jpg', 'The British Museum... more Greek columns!')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi1pol.jpg" alt="" />
+          </div>
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi2pol.jpg" alt="" />
+          </div>
+          <div id="polb3"class="pPiece" style="left:80px;top:270px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi3pol.jpg" alt="" />
+          </div>
+          <div id="polb4"class="pPiece" style="left:80px;top:270px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/archi4pol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      <div class="bpcontent">
+        <p>The civilisation created by the Ancient Greeks has had a profound influence on western culture, politics, art, theatre, sport, science, military technology and much more.</p>
+        <p>Greek philosophers such as Plato and his pupil Aristotle have influenced European thinkers for more than 2,000 years, especially with their emphasis on the importance of reason and logic.</p>
+        <p>Greek art hugely influenced western concepts of beauty.  The Ancient Greeks introduced realism to the portrayal of the human body.  They studied the anatomy of the human body and developed new ways of portraying muscles, bones, posture and movement in 2-D and 3-D.</p>
+        <p>Ancient Greek temples and other buildings have inspired architects across the world.  There are buildings in many cities of the world today that draw their inspiration from Greek styles of architecture.</p>
+        <p>Greek theatrical traditions still influence playwrights and styles of theatre today.   'Greek tragedy' is a popular style of theatre today, more than 2,500 years after it was first developed!</p>         
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+      
+    </div> <!--end of content-->
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="archiaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="archiaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="archiaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="archiaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-archi" style="visibility:hidden;"></div>
+  </div>
+  <script>    
+    sound = new Audio();
+    (function() {
+      $('div#polb1').css("z-index", 3);
+      $('div#polb2').css("z-index", 2);
+      $('div#polb3').css("z-index", 1);
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#polb3 > img').css("-webkit-transform", "rotate(-3deg)");
+      $('div#polb4 > img').css("-webkit-transform", "rotate(-3deg)");
+    
+      
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-archi').html('<audio id="archiaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page30.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#architecture").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-legacy.html");
+    }
+    
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $("#polb1").on('tap', function() {
+      $('#archi1link')[0].click();
+    });
+    $("#polb2").on('tap', function() {
+      $('#archi2link')[0].click();
+    });
+    $("#polb3").on('tap', function() {
+      $('#archi3link')[0].click();
+    });
+    $("#polb4").on('tap', function() {
+      $('#archi4link')[0].click();
+    });
+  
+   /* ******************** */
+    $("#archiaudioplbtn").on('tap', function() {
+      archiaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#archiaudiofbtn").on('tap', function() {
+      var ctime = archiaudio.currentTime;
+      archiaudio.currentTime = ctime + 10;
+    });
+    
+    $("#archiaudiobbtn").on('tap', function() {
+      var ctime = archiaudio.currentTime;
+      archiaudio.currentTime = ctime - 10;
+    });
+    
+    $("#archiaudiopsbtn").on('tap', function() {
+      archiaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+  <script src="js/fourcardLogicb.js"></script>
+</div>

@@ -1,0 +1,167 @@
+<!-- i-C-a -->
+<div data-role="page" id="egyptians">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Egyptians</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div>
+    <div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <a id="sphinxlink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/sphinx.jpg', 'The Sphinx, built by the ancient Egyptians... more than 4,000 years ago!')" href="#">click here</a>
+        <a id="pyramidslink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/pyramids.jpg', 'The Egyptian pyramids at Giza... 4500 years old and still among the most beautiful structures ever made')" href="#">click here</a>
+        <a id="ea2link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egypt_art_2.jpg', 'Art and iconography of the ancient Egyptians')" href="#">click here</a>
+        <a id="ea1link" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egypt_art_1.jpg', 'Writing and images used to tell stories in ancient Egypt')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/sphinxpol.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/pyramidspol.jpg" alt="" />
+          </div>
+          <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egypt_art_2pol.jpg" alt="" />
+          </div>
+          <div id="pol4"class="pPiece" style="left:80px;top:270px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egypt_art_1pol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontent">
+        <p>Time to travel to Egypt now, the land of the Pharaohs, Pyramids and mummies!  The Egyptians established their culture more than 5,000 years ago.  Their history is divided into kingdoms.  Each kingdom was a peaceful period of stable rule, separated by intervals of political unrest.  Hence we talk about the Old, the Middle and the New Kingdom.</p>
+        <p>The Egyptians reached the peak of their power during the New Kingdom. At that time the Egyptians were rivals of the Hittites and the Assyrians who reigned in the East. </p>
+        <p>The Egyptians built a fascinating culture based on the phases of the mighty river Nile.  The Nile brought the fertile soils and water upon which Egyptian farming depended.  The Egyptians had many gods, an advanced writing system, and amazing monuments like the Pyramids.  If you go to Egypt today you can still see them... More than 4,000 years later! </p>
+        <p>The Ancient Greeks had trade and cultural links with the Egyptians over many hundreds of years.  Eventually, Alexander the Great conquered Egypt and founded a new city there called Alexandria!  Alexandria is today the second largest city in Egypt.</p>
+      </div>
+        
+    <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+    
+    </div> <!-- end content -->  
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="egyptaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="egyptaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="egyptaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="egyptaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-egyptians" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    
+    (function() {
+      $('div#pol1').css("z-index", 3);
+      $('div#pol2').css("z-index", 2);
+      $('div#pol3').css("z-index", 1);
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+      $('div#pol4 > img').css("-webkit-transform", "rotate(-3deg)");
+            
+        if(sound.canPlayType('audio/mpeg')) {
+          
+          $('#actualaudio-egyptians').html('<audio id="egyptaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page26.mp3" type="audio/mpeg"></audio>');
+        } 
+    
+    $("#egyptians").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    (function() {
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=90";
+     $.getJSON( url, function( data ) {
+            var html = data[0].Images;
+            var re = /<img[^>]+src="http:\/\/([^">]+)/g;
+            var results = re.exec(html);
+            var source = results[1];            
+            $('#egyptart2').attr('href', "JavaScript:html5Lightbox.showLightbox(0, 'http://"+source+"', 'Egyptian Art');")
+         });
+    })();
+    
+    (function() {
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=91";
+     $.getJSON( url, function( data ) {
+            var html = data[0].Images;
+            var re = /<img[^>]+src="http:\/\/([^">]+)/g;
+            var results = re.exec(html);
+            var source = results[1];            
+            $('#pyramids').attr('href', "JavaScript:html5Lightbox.showLightbox(0, 'http://"+source+"', 'Pyramids of Egypt');")
+         });
+    })();
+    
+    (function() {
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=92";
+     $.getJSON( url, function( data ) {
+            var html = data[0].Images;
+            var re = /<img[^>]+src="http:\/\/([^">]+)/g;
+            var results = re.exec(html);
+            var source = results[1];            
+            $('#pyramidsphynx').attr('href', "JavaScript:html5Lightbox.showLightbox(0, 'http://"+source+"', 'Pyramid and Sphynx');")
+         });
+    })();
+    
+    $('#start-egyptians').on('click', function() {
+      $('#actualaudio-egyptians').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-egyptians').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-aroundag.html");
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $("#pol4").on('tap', function() {
+      $('#ea1link')[0].click();
+    });
+    
+    $("#pol3").on('tap', function() {
+      $('#ea2link')[0].click();
+    });
+    
+    $("#pol2").on('tap', function() {
+      $('#pyramidslink')[0].click();
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#sphinxlink')[0].click();
+    });
+    
+    /* ******************** */
+    $("#egyptaudioplbtn").on('tap', function() {
+      egyptaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#egyptaudiofbtn").on('tap', function() {
+      var ctime = egyptaudio.currentTime;
+      egyptaudio.currentTime = ctime + 10;
+    });
+    
+    $("#egyptaudiobbtn").on('tap', function() {
+      var ctime = egyptaudio.currentTime;
+      egyptaudio.currentTime = ctime - 10;
+    });
+    
+    $("#egyptaudiopsbtn").on('tap', function() {
+      egyptaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+  <script src="js/fourcardLogic.js"></script>
+</div> <!--//home-->

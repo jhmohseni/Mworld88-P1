@@ -1,0 +1,91 @@
+<!-- i-C-a -->
+<div id="odyssey" data-role="page">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="storypagetitle"><h1>The Odyssey</h1></div>
+      <div id="node-body-holder" class="storypage">
+        <p>When Odysseus left Troy after the end of war, his ship was hit by a storm and blown off course.  It took him ten years to reach his home in Ithaca!</p>			
+        <p>On his way home, Odysseus had many strange and terrifying adventures. He was captured by the terrible monster Cyclops, and was only able to escape by using his powers of trickery!</p>			
+        <p>Odysseus also met the Sirens, the Lotus Eaters, and the savage Laestrygones.  His story is told in the tale of the Odyssey.  It’s a bit scary but a great story...!</p>			
+        <p>After ten years, Odysseus finally returned home, where his wife was waiting for him.  But first he had to rescue her and prove that he was really Odysseus after all these years. Only then could he live happily in his own home again!</p>		 		  
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+  </div> <!-- end content -->      
+  </div></div><!--/anisold-->  
+  <div class="audiopanel">
+    <div class="bbh"><img id="odysseyaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="odysseyaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="odysseyaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="odysseyaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-odyssey" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio();
+    (function() {
+      
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-odyssey').html('<audio id="odysseynar" controls preload onpause="playodyssey()" onplay="pauseodyssey()"><source src="audio/Page17.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+    $('#start-oddysey').on('click', function() {
+      $('#actualaudio-oddysey').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-oddysey').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    $("#odyssey").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    function pauseodyssey() {
+      odysseyaudiobg.pause();
+    }
+    
+    function playodyssey() {
+      //odysseyaudiobg.play();
+    }
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-storytelling.html");
+      odysseyaudiobg.pause();
+      agsoundbg.play();
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    /* ******************** */
+    $("#odysseyaudioplbtn").on('tap', function() {
+      odysseynar.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#odysseyaudiofbtn").on('tap', function() {
+      var ctime = odysseynar.currentTime;
+      odysseynar.currentTime = ctime + 10;
+    });
+    
+    $("#odysseyaudiobbtn").on('tap', function() {
+      var ctime = odysseynar.currentTime;
+      odysseynar.currentTime = ctime - 10;
+    });
+    
+    $("#odysseyaudiopsbtn").on('tap', function() {
+      odysseynar.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

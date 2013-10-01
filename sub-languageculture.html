@@ -1,0 +1,34 @@
+<!-- i-C-a -->
+<div data-role="page" id="languageculture2">
+  <div data-role="content" style="overflow:hidden !important;">
+    
+    <div id="titleb-holder"><h1 style="margin-top:184px;">Language and Culture</h1></div>
+    
+    <div style="width:90%;margin:auto;">
+      <div class="aclink"><a href="#" data-transition="slide" id="agmovielink"><img src="css/images/9-12/Language_and_Culture/mythsbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Language_and_Culture/greetingsbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Language_and_Culture/calligraphybtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Language_and_Culture/storiesbtn.png"></a></div><br>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Language_and_Culture/cometohousebtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Language_and_Culture/dinnerjapbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Language_and_Culture/dinneritalybtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/Language_and_Culture/mynamebtn.png"></a></div>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/bottomhome.png"></a></div>
+  </div> <!-- end content -->  
+    <script>
+				$(function() {
+					$("#languageculture2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+				});
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      langcultsoundbg.pause(); langcultsoundbg.currentTime = 0;
+      mainaudiobg.play();
+    }
+    
+    $('.homelinkbh').on('tap', function() { 
+      mainaudiobg.play(); langcultsoundbg.pause(); langcultsoundbg.currentTime = 0;
+    });
+			</script>
+</div>

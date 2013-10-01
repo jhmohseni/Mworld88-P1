@@ -1,0 +1,128 @@
+<!-- i-C-a -->
+<div data-role="page" id="phoenicians">
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/slidebar.js"></script>
+    <div class="menuhousing"></div>
+    <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+    <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+    <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+    <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+    <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>The Phoenicians</h1></div>
+    <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                    <a id="sidon1" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/sidon1.jpg', 'Remains of the ancient Phoenician city of Sidon.  Many modern cities have a connection to the ancient world!')" href="#">click here</a>
+                    <a id="carthage2" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/carthage2.jpg', 'Remains of the famous Phoenician civilisation at Carthage')" href="#">click here</a>
+                    <a id="carthage1" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/carthage1.jpg', 'The city of Carthage as it is today… not much remains!')" href="#">click here</a>
+                    <div id="zoomwrapper">
+                        <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/sidon1pol.jpg" alt="" />
+                        </div>
+                        <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/carthage2pol.jpg" alt="" />
+                        </div>
+                        <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/carthage1pol.jpg" alt="" />
+                        </div>
+                    </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontent">
+                    <p>The Phoenicians were an ancient civilisation, which arose in the coastal areas of the eastern Mediterranean.  Their name comes from the Greek word Phoinikes, which refers to the purple coloured dye which the Phoenicians extracted from a type of sea snail.  This might sound strange, but the Phoenicians used it to produce beautiful purple clothes!</p>
+                    <p>The Phoenicians were maritime traders.  Their culture and technologies influenced the whole Mediterranean region.  They founded trading posts and colonies across the entire Mediterranean, including the city of Carthage on the north coast of Africa.</p>
+                    <p>In Carthage the Phoenicians mixed with the local people to produce a powerful culture which would later rival the Romans.  Have you heard of Hannibal?  Hannibal was a Carthaginian general who fought fiercely against the Romans for many years.  In the end, the Romans defeated his army and destroyed Carthage.</p>
+                    <p>The Phoenicians also developed an alphabet system, that was adopted by the Greeks.  This is the same alphabet used in most European languages today!</p>
+                </div>
+
+                <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+
+            </div> <!-- end content -->  
+        </div></div><!--/anisold-->
+    <div class="audiopanel">
+        <div class="bbh"><img id="phoeaudiobbtn" src="images/audio/audio-back.png"></div>
+        <div class="plbh"><img id="phoeaudioplbtn" src="images/audio/audio-play.png"></div>
+        <div class="psbh"><img id="phoeaudiopsbtn" src="images/audio/audio-pause.png"></div>
+        <div class="fbh"><img id="phoeaudiofbtn" src="images/audio/audio-forw.png"></div>
+        <div id="actualaudio-phoenicians" style="visibility:hidden;"></div>
+    </div>
+    <script>
+        sound = new Audio(); // 'sound' is now an audio object
+    
+        (function() {
+	
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 2);
+            $('div#pol2').css("z-index", 1);
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+            $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+	
+	
+	
+      
+            if(sound.canPlayType('audio/mpeg')) {
+              
+                $('#actualaudio-phoenicians').html('<audio id="phoeaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page27.mp3" type="audio/mpeg"></audio>');
+            } 
+    
+            $("#phoenicians").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+        
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioSrc();
+        })();
+    
+    
+        $('#start-phoenicians').on('click', function() {
+            $('#actualaudio-phoenicians').show();
+            var oldHeight = $('#node-body-holder').height();
+            var newHeight = oldHeight - $('#actualaudio-phoenicians').height();
+            $('#node-body-holder').height(newHeight);
+        });
+    
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-aroundag.html");
+        }
+        $('.homelinkag').on('tap', function() { 
+            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+	
+        $("#pol3").on('tap', function() {
+            $('#carthage1')[0].click();
+        });
+    
+        $("#pol2").on('tap', function() {
+            $('#carthage2')[0].click();
+        });
+    
+        $("#pol1").on('tap', function() {
+            $('#sidon1')[0].click();
+        });
+	
+        /* ******************** */
+        $("#phoeaudioplbtn").on('tap', function() {
+            phoeaudio.play();
+            agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+    
+        $("#phoeaudiofbtn").on('tap', function() {
+            var ctime = phoeaudio.currentTime;
+            phoeaudio.currentTime = ctime + 10;
+        });
+    
+        $("#phoeaudiobbtn").on('tap', function() {
+            var ctime = phoeaudio.currentTime;
+            phoeaudio.currentTime = ctime - 10;
+        });
+    
+        $("#phoeaudiopsbtn").on('tap', function() {
+            phoeaudio.pause();
+            $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+	
+    </script>
+    <script src="js/threecardLogic.js"></script>
+</div> <!--//home-->

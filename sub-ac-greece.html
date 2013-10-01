@@ -1,0 +1,90 @@
+<!-- i-C-a -->
+<div data-role="page" id="ancientgreece"> 
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="navtitleholder" style="padding-top:14px;"><h1>Ancient Greece</h1></div>
+  
+  <div id="anisold"><div id="animatedsoldier"></div>
+    <div id="acgreecechar">&nbsp;	
+    <div data-role="content" class="kidzcontent">
+      <div class="nav-content">
+        <p>Welcome to Ancient Greece!</p>
+        <p>The story of a famous civilisation awaits you... warriors, artists, poets and more!</p>
+        <p>Read about Homer, Achilles, and Odysseus.</p>
+        <p>If you're lucky you might hear their stories in Ancient Greek.</p>
+        <p>You might even hear the story of the famous Babylonian King Gilgamesh... in the 3,000 year old language of the Babylonians!</p>
+      </div>
+      
+      <div class="navbtn1">
+        <p><a href="sub-ac-greece-origins.html" data-transition="slide"><img src="images/5-8/Ancient_Civilizations/Greece/oagb.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-ac-greece-lifeinag.html" data-transition="slide" ><img src="images/5-8/Ancient_Civilizations/Greece/lifeagb.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-ac-greece-legacy.html" data-transition="slide" ><img src="images/5-8/Ancient_Civilizations/Greece/legacyb.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-ac-greece-aroundag.html" data-transition="slide" ><img src="images/5-8/Ancient_Civilizations/Greece/waagbtnb.png"></a></p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+    </div> <!-- end content -->  
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="audiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="audioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="audiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="audiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    
+    (function() { //this function executes when page is ready. this is jQuery's equivalent to onload
+     
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()" id="agnar"><source src="audio/Intro.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#ancientgreece").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    function goBack() {
+      $.mobile.changePage("sub-ancient.html");
+      ancientsoundbg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $("#audioplbtn").on('tap', function() {
+      agnar.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#audiofbtn").on('tap', function() {
+      var ctime = agnar.currentTime;
+      agnar.currentTime = ctime + 10;
+    });
+    
+    $("#audiobbtn").on('tap', function() {
+      var ctime = agnar.currentTime;
+      agnar.currentTime = ctime - 10;
+    });
+    
+    $("#audiopsbtn").on('tap', function() {
+      agnar.pause();
+    });
+  </script>
+</div> <!--//ancientgreece-->

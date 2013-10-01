@@ -1,0 +1,134 @@
+<!-- i-C-a -->
+<div id="tribesofgreece" data-role="page">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Greek Tribes</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/templespol.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/Origins_of_Ancient_Greece/leonidas1pol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontent">  
+        <p>The Greek tribes were the Ionians, the Aeolians, and the Dorians.</p>
+        <p>The Ionians take their name from Ion, the son of Xuthus, son of Hellen.  They lived in the Peloponnese, but were forced to migrate to the coast of Asia Minor when the Dorians invaded Greece. The Greeks of Athens were descendants of the Ionians and spoke the Ionian dialect.  Unlike their mortal enemies the Spartans, the Athenians were known for their love of philosophy and the fine arts. </p>
+        <p>The Aeolians take their name from Aeolus, another descendent of Hellen. Aeolus established his kingdom in Thessaly, but when the Dorians started pushing from the north, several Aeolians migrated to the islands of the northern Aegean and central Asia Minor.  Some famous Aeolians included the poets Sappho and Alcaeus, whose poetry still inspires modern writers today... more than 2,500 years later!</p>
+        <p>The Dorians were considered the most warlike of all the Greek tribes. They hailed from Dorieus, another son of Hellen, and are related to the Spartans. The Spartans adopted a very different way of life to the rest of the Greeks, focusing on lifelong training for war. Both women and men trained systematically because the Spartans believed that strong women produce strong babies.  When a baby was born they would give it a bath in wine rather than water!</p>
+      </div>
+    </div> <!--end of content-->
+    
+    <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+    
+  </div></div><!--/anisold-->
+  <script>
+    sound1 = new Audio(); // 'sound' is now an audio object
+    sound2 = new Audio(); // 'sound' is now an audio object
+    sound3 = new Audio(); // 'sound' is now an audio object
+    (function() {
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=66";
+        $.getJSON( url, function( data ) {
+            //$('#node-body-oag').html(data[0].Body);
+            if(sound1.canPlayType('audio/mpeg')) {
+              $('#psbutton-tribes1').show();
+              $('#actualaudio-tribes1').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+ data[0].Audio +'" type="audio/mpeg"></audio>');
+            } else {
+              sound1.src = null;
+              $('#psbutton-tribes1').html('Your system does not support HTML5 Audio.');
+              $('#psbutton-tribes1').show();
+            }
+         });
+      
+      var url2 = "http://back.uvmate.com/jeuel_services/educ.json?nid=67";
+        $.getJSON( url2, function( data ) {
+            //$('#node-body-oag2').html(data[0].Body);
+            if(sound2.canPlayType('audio/mpeg')) {
+              $('#psbutton-tribes2').show();
+              $('#actualaudio-tribes2').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+ data[0].Audio +'" type="audio/mpeg"></audio>');
+            } else {
+              sound1.src = null;
+              $('#psbutton-tribes2').html('Your system does not support HTML5 Audio.');
+              $('#psbutton-tribes2').show();
+            }
+         });
+         
+       var url3 = "http://back.uvmate.com/jeuel_services/educ.json?nid=68";
+        $.getJSON( url3, function( data ) {
+            //$('#node-body-oag3').html(data[0].Body);
+            if(sound3.canPlayType('audio/mpeg')) {
+              $('#psbutton-tribes3').show();
+              $('#actualaudio-tribes3').html('<audio controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="'+ data[0].Audio +'" type="audio/mpeg"></audio>');
+            } else {
+              sound3.src = null;
+              $('#psbutton-tribes3').html('Your system does not support HTML5 Audio.');
+              $('#psbutton-tribes3').show();
+            }
+         });
+    
+    $("#tribesofgreece").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+    })();
+    
+    (function() {
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol1').css("z-index", 1);
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+    
+    })();
+    
+    $('#start-tribes1').on('click', function() {
+    	$('#actualaudio-tribes1').show();
+      var oldHeight = $('#node-body-holder1').height();
+      var newHeight = oldHeight - $('#actualaudio-tribes1').height();
+      $('#node-body-holder1').height(newHeight);
+    });
+    
+    $('#start-tribes2').on('click', function() {
+    	$('#actualaudio-tribes2').show();
+      var oldHeight = $('#node-body-holder2').height();
+      var newHeight = oldHeight - $('#actualaudio-tribes2').height();
+      $('#node-body-holder2').height(newHeight);
+    });
+    
+    $('#start-tribes3').on('click', function() {
+    	$('#actualaudio-tribes3').show();
+      var oldHeight = $('#node-body-holder3').height();
+      var newHeight = oldHeight - $('#actualaudio-tribes3').height();
+      $('#node-body-holder3').height(newHeight);
+    });
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-origins.html");
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $("#pol2").on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-spartans.html");
+    });
+    
+    $("#pol1").on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-temples.html");
+    });
+  </script>
+  <script src="js/twocardLogic.js"></script>
+</div>

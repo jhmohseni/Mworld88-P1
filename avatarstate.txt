@@ -1,0 +1,6 @@
+<div style="background-image: url(&quot;css/images/avatar/ricosprites.png&quot;); background-repeat: no-repeat; background-position: 0px center;" id="avatarbody">
+          <div style="background-image: url(&quot;css/images/avatar/hat.png&quot;); background-repeat: no-repeat; background-position: center center;" id="avatarhair"></div>
+          <div id="avatareyes"></div>
+          <div style="background-image: url(&quot;css/images/avatar/goatee.png&quot;); background-repeat: no-repeat; background-position: center center; top: -131px; left: 14px;" id="avatarfh"></div>
+          <div id="avatarcoat"></div>
+        </div><!--/avatarbody-->

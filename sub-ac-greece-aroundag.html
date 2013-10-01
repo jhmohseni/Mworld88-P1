@@ -1,0 +1,89 @@
+<!-- i-C-a -->
+<div id="aroundag" data-role="page">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="anisold"><div id="acgreecechar">
+    <div data-role="content" class="kidzcontent" style="margin-top:0px;height:718px;">
+      <div id="aggame1link" style="width:48px;height:100px;position:absolute;left:210px;top:554px;background:url(images/5-8/Ancient_Civilizations/Greece/game/civscramtrigger.png) center center no-repeat">
+        <div id="civscramtrigger" style="width:48px;height:100px;background:url(images/5-8/Ancient_Civilizations/Greece/game/civscramtrigger.png) center center no-repeat">&nbsp;</div>
+      </div>
+      
+        <div style="width:250px;height:100px;position:absolute;left:700px;top:184px;text-align:center;font-family:'Chalkboard SE';">
+          The Ancient Greeks and the world around them were influenced by many civilisations.<br>
+          Here are six of the most influential of them...<br>click to find out more!
+        </div>
+        <div id="romanslink" style="width:94px;height:77px;position:absolute;left:270px;top:260px;"><img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/romansicon.png"></div>
+        <div id="lydianslink" style="width:93px;height:73px;position:absolute;left:432px;top:322px;"><img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/lydiansicon.png"></div>
+        <div id="persianslink" style="width:93px;height:87px;position:absolute;left:688px;top:437px;"><img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/persiansicon.png"></div>
+        <div id="phoenicianslink" style="width:93px;height:89px;position:absolute;left:500px;top:364px;"><img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/phoeniciansicon.png"></div>
+        <div id="babylonianslink" style="width:96px;height:86px;position:absolute;left:593px;top:405px;"><img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/babyloniansicon.png"></div>
+        <div id="egyptianslink" style="width:94px;height:65px;position:absolute;left:427px;top:434px;"><img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/egyptiansicon.png"></div>
+      <div class="v-spacer"></div>
+      <div id="foot-band" style="margin-top:582px;padding:0 10px;">
+        <div style="width:253px;height:2px;color:#0071bc;margin:22px auto -15px;"><a href="home.html" id="homelinkag-aroundag"><img src="images/5-8/bottomhome.png"></a></div>
+        <div class="v-spacer"></div>
+      </div>
+    </div> <!--end of content-->
+  </div></div><!--/anisold-->
+  <script>
+    
+    $(function() {
+      $("#aroundag").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      $("node-content-kinghatpray").swipe("disabled");
+      $('#civscramtrigger').fadeOut(500, lighterJar());
+      
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    });
+    
+    function lighterJar() {
+      $('#civscramtrigger').fadeIn(500, function() {
+        $('#civscramtrigger').fadeOut(500, lighterJar());
+      });
+    }
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece.html");
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $('#aggame1link').on('tap', function() {
+      $.mobile.changePage("game-ag2.html", { transition: "flip" });
+      civscrambg.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0;
+    });
+    
+    $('#romanslink').on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-romans.html", { transition: "slide" });
+    });
+    
+    $('#lydianslink').on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-lydians.html", { transition: "slide" });
+    });
+    
+    $('#persianslink').on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-persians.html", { transition: "slide" });
+    });
+    
+    $('#phoenicianslink').on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-phoenicians.html", { transition: "slide" });
+    });
+    
+    $('#egyptianslink').on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-egyptians.html", { transition: "slide" });
+    });
+    
+    $('#babylonianslink').on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-babylonians.html", { transition: "slide" });
+    });
+  </script>
+</div>

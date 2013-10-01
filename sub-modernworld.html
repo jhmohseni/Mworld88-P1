@@ -1,0 +1,34 @@
+<!-- i-C-a -->
+<div data-role="page" id="modernworld2">
+  <div data-role="content" style="overflow:hidden !important;">
+    
+    <div id="titleb-holder"><h1 style="margin-top:184px;">The Modern World</h1></div>
+    
+    <div style="width:90%;margin:auto;">
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/moneybtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/machinesbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/buildingsbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/bridgedamtunbtn.png"></a></div><br>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/digitalbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/travelbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/submarinebtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/9-12/The_Modern_World/challengesbtn.png"></a></div>
+    </div>
+    <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/bottomhome.png"></a></div>
+  </div> <!-- end content -->  
+    <script> 
+				$(function() {
+					$("#modernworld2").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+				});
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      modernsoundbg.pause(); modernsoundbg.currentTime = 0;
+      mainaudiobg.play();
+    }
+    
+    $('.homelinkbh').on('tap', function() { 
+      mainaudiobg.play(); modernsoundbg.pause(); modernsoundbg.currentTime = 0;
+    });
+			</script>
+</div>

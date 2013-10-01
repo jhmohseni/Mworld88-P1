@@ -1,0 +1,103 @@
+<!-- i-C-a -->
+<div data-role="page" id="lydiansmoney">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="tradeq" class="talkbubble" style="background:url(images/5-8/Ancient_Civilizations/Greece/game/tradeq.png) no-repeat; width:471px;height:305px;position:absolute;left:310px;top:20px;visibility:hidden;padding:120px 0 0 0;">
+    <div id="pomeg" class="trade" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/trade-pomeg.png) no-repeat;width:221px;height:82px;margin-left:25px;">&nbsp;</div>
+    <div id="chilli" class="trade" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/trade-chilli.png) no-repeat;width:221px;height:82px;">&nbsp;</div>
+    <div id="grapes" class="trade" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/trade-grapes.png) no-repeat;width:221px;height:82px;margin-left:25px;">&nbsp;</div>
+    <div id="figs" class="trade" style="float:left;background:url(images/5-8/Ancient_Civilizations/Greece/game/trade-figs.png) no-repeat;width:221px;height:82px;">&nbsp;</div>
+  </div><!--/olympicq-->
+  <div class="bptitleholder" style="padding-top:14px;"><h1>The Lydians and Money</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      <div class="sidebarleft-half">
+      </div>	  
+      
+      <div class="bpcontent">
+        <p>Imagine trying to buy vegetables at the time of the Mycenaean kings when barter (exchange of goods) was the only way to do your shopping! </p>
+        <p>Ancient people engaged in trade from the earliest times.  They regularly used precious metals like silver to seal their exchanges.  But these metals were heavy to carry and it was difficult to agree on the exchange rate. So, although the Egyptians produced metal rings to use as money as early as 2500 BCE, the rest of the Mediterranean peoples still preferred to exchange goods.</p>
+        
+        <p>The Lydians were the first Mediterranean people to use coins with a fixed value based on a strict weight system. Using a fixed value based on weight gave people confidence to use them. The Greeks and the Romans then used the same approach for creating coins as money. In other parts of the world, for example in China, other people developed their own types of money.</p>
+        <p>What type of coins do you use at home? Can you explain to your parents where coins came from? </p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+      
+    </div> <!-- end content -->  
+   </div></div><!--/anisold-->
+   <div class="audiopanel">
+    <div class="bbh"><img id="lydiansmaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="lydiansmaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="lydiansmaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="lydiansmaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-lydiansmoney" style="visibility:hidden;"></div>
+  </div>
+   <section class="container" style="height:670px;margin-top:0px;">
+      <div class="spriteComing"></div>
+    </section>
+  <script src="js/spritespin.js" type="text/javascript"></script>
+  <script language="javascript" type="text/javascript" src="js/script.js"></script>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    
+    (function() {
+	
+            if(sound.canPlayType('audio/mpeg')) {
+              
+              $('#actualaudio-lydiansmoney').html('<audio id="lydiansmaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page22.mp3" type="audio/mpeg"></audio>');
+            } 
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    $("#lydiansmoney").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-lydians.html");
+    }
+    
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    $(".trade").on('tap', function() {
+      var ansId = $(this).attr("id");
+      if(ansId == "chilli") {
+        alert("Well done! You've earned 100 points.");
+      } else {
+        alert("Sorry, not quite... try again");
+      }
+    });
+    
+    /* ******************** */
+    $("#lydiansmaudioplbtn").on('tap', function() {
+      lydiansmaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#lydiansmaudiofbtn").on('tap', function() {
+      var ctime = lydiansmaudio.currentTime;
+      lydiansmaudio.currentTime = ctime + 10;
+    });
+    
+    $("#lydiansmaudiobbtn").on('tap', function() {
+      var ctime = lydiansmaudio.currentTime;
+      lydiansmaudio.currentTime = ctime - 10;
+    });
+    
+    $("#lydiansmaudiopsbtn").on('tap', function() {
+      lydiansmaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div> <!--//home-->

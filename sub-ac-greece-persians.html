@@ -1,0 +1,107 @@
+<!-- i-C-a -->
+<div data-role="page" id="persians">
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/slidebar.js"></script>
+    <div class="menuhousing"></div>
+    <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+    <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+    <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+    <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+    <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>The Persians</h1></div>
+    <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                    <a id="persepolis" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/persopolis.jpg', 'The famous Persian city of Persepolis as it looks today')" href="#">click here</a>
+                    <a id="card" style="visibility:hidden;" href="#">click here</a>
+
+                    <div id="zoomwrapper">
+                        <div id="pol1"class="pPiece" style="left:75px;top:290px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/persepolispol.jpg" alt="" />
+                        </div>
+                        <div id="pol2"class="pPiece" style="left:80px;top:270px;">
+                            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/persianeducpol.jpg" alt="" />
+                        </div>
+                    </div><!--/zoomwrapper-->
+                </div>
+                <div class="bpcontent">
+                    <p>The name Persia comes from the province of Persis, called Fars in Iran today.  The Greeks used the name Persia to refer to the whole land occupied by Iranian tribes who formed a famous and powerful empire, the Achaemenid Empire.</p>
+                    <p>The Achaemenid Empire fought a series of major wars with the Ancient Greeks.  Their culture and customs also had a large influence on the Ancient Greeks.  The Persians developed an advanced system of government and administration, which included a postal system and road systems. They also adopted an official language, called Aramaic, throughout their empire.</p>
+                    <p>Darius I, the third Achaemenid King, was defeated by the Greeks at the battle of Marathon in 490 BCE. After that, the Persian Empire was gradually weakened. The last Achaemenid king was defeated by Alexander the Great, but other Persian dynasties arose after that.  Persian culture, language, and society have remained influential  since then.</p>
+                    <!--<p style="margin-top:20px;"><a href="sub-ac-greece-xenophon.html" data-role="button" data-transition="slide">Hear the story of Xenophon <br>and the education of the Persian King!</a></p>-->
+                </div>
+
+                <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+
+            </div> <!-- end content -->  
+        </div></div><!--/anisold-->
+    <div class="audiopanel">
+        <div class="bbh"><img id="persianaudiobbtn" src="images/audio/audio-back.png"></div>
+        <div class="plbh"><img id="persianaudioplbtn" src="images/audio/audio-play.png"></div>
+        <div class="psbh"><img id="persianaudiopsbtn" src="images/audio/audio-pause.png"></div>
+        <div class="fbh"><img id="persianaudiofbtn" src="images/audio/audio-forw.png"></div>
+        <div id="actualaudio-persians" style="visibility:hidden;"></div>
+    </div>
+    <script>
+        sound = new Audio(); // 'sound' is now an audio object
+    
+        (function() {
+	
+            $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+            $('div#pol1').css("z-index", 1);
+            $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+	
+      
+            if(sound.canPlayType('audio/mpeg')) {
+                $('#actualaudio-persians').html('<audio id="persianaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page24.mp3" type="audio/mpeg"></audio>');
+            } 
+    
+            $("#persians").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+            
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioSrc();
+        })();
+    
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-aroundag.html");
+        }
+        $('.homelinkag').on('tap', function() { 
+            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+	
+        $("#pol1").on('tap', function() {
+            $('#persepolis')[0].click();
+        });
+	
+        $("#pol2").on('tap', function() {
+            $.mobile.changePage("sub-ac-greece-persian-education.html", {transition: "slide"});
+        });
+	
+        /* ******************** */
+        $("#persianaudioplbtn").on('tap', function() {
+            persianaudio.play();
+            agsoundbg.pause(); agsoundbg.currentTime = 0; 
+            $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+        });
+    
+        $("#persianaudiofbtn").on('tap', function() {
+            var ctime = persianaudio.currentTime;
+            persianaudio.currentTime = ctime + 10;
+        });
+    
+        $("#persianaudiobbtn").on('tap', function() {
+            var ctime = persianaudio.currentTime;
+            persianaudio.currentTime = ctime - 10;
+        });
+    
+        $("#persianaudiopsbtn").on('tap', function() {
+            persianaudio.pause();
+            $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+        });
+    </script>
+    <script src="js/threecardLogic.js"></script>
+</div> <!--//home-->

@@ -1,0 +1,119 @@
+<!-- i-C-a -->
+<div id="quasars" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+    
+    <div id="bonus-ags" class="talkbubble" style="background:url(images/5-8/Space/Black_Holes/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div><!--/bonus-ags-->
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Quasars</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                  <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+                     <img src="images/5-8/Space/Black_Holes/Life_Around_BH/quasarvidpol.jpg" alt="" />
+                  </div>
+                </div>
+                
+                <div class="bpcontentbh">
+                    <p>When particles fall towards a black hole, they gain speed and energy. Near the black-hole itself, particles move close to the speed of light. When the particles smash into each other at this speed, they release vast amounts of energy.</p>
+                    <p>When this happens with the really large black holes at the centre of galaxies, the particles falling towards the black hole release so much energy that the surrounding area can be brighter than a million Suns!  These spectacularly bright objects are called quasars.</p>
+                    <p>Quasars can be so bright that they can be seen from very, very far away.  One quasar, called Quasar ULAS J1120+0641, is so bright that we can see its light in telescopes on the Earth, even though it has taken 13 billion years for that light to reach the Earth!</p>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+    <div class="audiopanel">
+      <div class="bbh"><img id="quasarsaudiobbtn" src="images/audio/audio-back.png"></div>
+      <div class="plbh"><img id="quasarsaudioplbtn" src="images/audio/audio-play.png"></div>
+      <div class="psbh"><img id="quasarsaudiopsbtn" src="images/audio/audio-pause.png"></div>
+      <div class="fbh"><img id="quasarsaudiofbtn" src="images/audio/audio-forw.png"></div>
+      <div id="actualaudio-quasars" style="visibility:hidden;"></div>
+    </div>
+    <div id="quasarvidholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+       <div class="previdcontainer">
+         <video id="quasarvid" width="1024" height="748" preload>
+           <source src="video/quasar-sfx1.m4v" type="video/mp4">
+         </video>
+       </div>
+   </div> 
+   
+    <script>
+        sound = new Audio(); // 'sound' is now an audio object
+        (function() {
+          quasarvid.addEventListener('ended', function() { 
+              //minoanvolcano.webkitExitFullscreen();
+              $("#quasarvidholder").css({"visibility":"hidden", "z-index":-1});
+              $("#quasarvid").css({"z-index":-1});
+              bgsoundbh.play(); 
+            });
+          
+          if(sound.canPlayType('audio/mpeg')) {
+              $('#actualaudio-quasars').html('<audio controls preload id="quasarsaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page20_0.mp3" type="audio/mpeg"></audio>');
+          }
+    
+            $("#quasars").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioVideoSrc();
+        })();
+        
+        
+        $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+        function goBack() {
+            $.mobile.changePage("sub-space-bh-lifeabh.html");
+        }
+      
+      function pausedaudio() {
+         bgsoundbh.play();
+       }
+       
+     function pausebg() {
+       bgsoundbh.pause();
+     }
+       
+      $("#polb1").on('tap', function() {
+         $("#quasarvidholder").css({"visibility":"visible", "z-index":10});
+         $("#quasarvid").css({"z-index":9});
+         bgsoundbh.pause();
+         quasarvid.play();
+      });
+      
+    $("#quasarvid").on('tap', function() {
+      $("#quasarvidholder").css({"visibility":"hidden", "z-index":-1});
+      $("#quasarvid").css({"z-index":-1});
+      bgsoundbh.play();
+      quasarvid.pause();
+      quasarvid.currentTime = 0;
+    });
+        /* ******************** */
+    $("#quasarsaudioplbtn").on('tap', function() {
+      quasarsaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#quasarsaudiofbtn").on('tap', function() {
+      var ctime = quasarsaudio.currentTime;
+      quasarsaudio.currentTime = ctime + 10;
+    });
+    
+    $("#quasarsaudiobbtn").on('tap', function() {
+      var ctime = quasarsaudio.currentTime;
+      quasarsaudio.currentTime = ctime - 10;
+    });
+    
+    $("#quasarsaudiopsbtn").on('tap', function() {
+      quasarsaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    </script>
+</div>

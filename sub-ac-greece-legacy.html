@@ -1,0 +1,117 @@
+<!-- i-C-a -->
+<div id="legacyofgreece" data-role="page">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Legacy of Ancient Greece</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="sidebarleft-half">
+        <a id="theatrelink" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/theatre.jpg', 'The Ancient Greek theatre at Epidaurus... the theatre could seat thousands of people!')" href="#">click here</a>
+        <div id="zoomwrapper">
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/theatrepol.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/architechturepol.jpg" alt="" />
+          </div>
+          <div id="pol3"class="pPiece" style="left:80px;top:270px;">
+              <img src="images/5-8/Ancient_Civilizations/Greece/Legacy_Of_Ancient_Greece/pythapol.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+	  
+      <div class="bpcontent">
+        <p>The civilisation created by the Ancient Greeks has had a profound influence on western culture, politics, art, theatre, sport, science, military technology and much more.</p>
+        <p>Greek philosophers such as Plato and his pupil Aristotle have influenced European thinkers for more than 2,000 years, especially with their emphasis on the importance of reason and logic.</p>
+        <p>Greek art hugely influenced western concepts of beauty.  The Ancient Greeks introduced realism to the portrayal of the human body.  They studied the anatomy of the human body and developed new ways of portraying muscles, bones, posture and movement in 2-D and 3-D.</p>
+        <p>Ancient Greek temples and other buildings have inspired architects across the world.  There are buildings in many cities of the world today that draw their inspiration from Greek styles of architecture.</p>
+        <p>Greek theatrical traditions still influence playwrights and styles of theatre today.   ‘Greek tragedy’ is a popular style of theatre today, more than 2,500 years after it was first developed!</p>  
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+      
+    </div> <!--end of content-->
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="legacyaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="legacyaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="legacyaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="legacyaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-legacy" style="visibility:hidden;"></div>
+  </div>
+  <script>    
+    sound = new Audio();
+    (function() {
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#pol1').css("z-index", 2);
+      $('div#pol2').css("z-index", 1);
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $('div#pol3 > img').css("-webkit-transform", "rotate(-3deg)");
+	
+      
+        if(sound.canPlayType('audio/mpeg')) {
+          $('#actualaudio-legacy').html('<audio id="legacyaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page29.mp3" type="audio/mpeg"></audio>');
+        } 
+    
+    $("#legacyofgreece").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    $('#start-legacy').on('click', function() {
+      $('#actualaudio-legacy').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-legacy').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece.html");
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $("#pol1").on('tap', function() {
+      $('#theatrelink')[0].click();
+    });
+    $("#pol2").on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-legacy-architecture.html", {transition: "slide"});
+    });
+    $("#pol3").on('tap', function() {
+      $.mobile.changePage("sub-ac-greece-math-science-more.html", {transition: "slide"});
+    });
+    
+    /* ******************** */
+    $("#legacyaudioplbtn").on('tap', function() {
+      legacyaudio.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#legacyaudiofbtn").on('tap', function() {
+      var ctime = legacyaudio.currentTime;
+      legacyaudio.currentTime = ctime + 10;
+    });
+    
+    $("#legacyaudiobbtn").on('tap', function() {
+      var ctime = legacyaudio.currentTime;
+      legacyaudio.currentTime = ctime - 10;
+    });
+    
+    $("#legacyaudiopsbtn").on('tap', function() {
+      legacyaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+	</script>
+  <script src="js/threecardLogic.js"></script>
+</div>

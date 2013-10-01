@@ -1,0 +1,135 @@
+<!-- i-C-a -->
+<div id="iliad" data-role="page" style="height:748px !important; overflow:hidden;">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="achillesq" class="talkbubble" style="background:url(images/5-8/Ancient_Civilizations/Greece/game/talkbubble.png) no-repeat; width:471px;height:355px;position:absolute;left:310px;top:20px;visibility:hidden;padding-top:50px;text-align:center;">
+    <p style="width:380px;margin:auto;">Do you know which part of your body is named after the famous Greek warrior Achilles?</p>
+    <p style="width:380px;margin:auto;"><input type="text" id="achillesans" style="background:none;border:none;text-align:center;"></p>
+    <p style="width:180px;margin:auto;"><input type="button" id="achillessubmit" value="Submit"></p>
+  </div><!--/olympicq-->
+  <div id="anisold">
+    <div data-role="content" class="kidzcontent">
+      <div class="storypagetitle"><h1>Iliad</h1></div>
+      <div id="node-body-holder" class="storypage">
+        <p>The Iliad describes the war of the Greeks against  the Trojans.  When the Trojan prince Paris abducted Helen, the wife of Menelaus, all the Greek kings swore revenge and sailed to Troy for a war that would last ten long years. The Greek armies were by led by Agamemnon, the brother of Menelaus.  Their most famous warrior was Achilles. In the Iliad Homer describes the terrible quarrel of Achilles and Agamemnon, which nearly caused the Greeks to lose the war.</p>
+        <p>After fighting for so long with little success it was obvious to the Greeks that the city of Troy would only be captured by trickery.  Odysseus, the most cunning of the Greeks, persuaded <a href="#achilles" data-rel="popup">Achilles</a> to sooth his anger and devised a devious plan.  The Greeks created a wooden horse.  The Trojans thought the horse was a gift, but it contained some hidden Greek soldiers!  The rest of the Greek army left and hid on a nearby island.</p>
+        <p>Thinking that the war was finally over, the Trojans led the horse into their city and celebrated late into the night.  When the Trojans had fallen asleep, the Greek soldiers came out of the belly of the wooden horse and opened the city gates for their comrades who had returned. They killed many Trojans and enslaved the rest of the population.  For this they were punished harshly by the gods.  Agamemnon was murdered upon his return home by his treacherous wife, while Odysseus spent another ten years at sea before returning home disguised as a beggar.</p>
+        <p>The moral of Homer’s story… even the winners are sometimes losers in war.  Peace is a better choice, even for brave warriors!</p>
+        <p><a href="#" data-role="button" id="greekiliad">Hear the Iliad in ancient Greek</a></p>
+      </div>
+      
+      
+      <div data-role="popup" id="achilles" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+        <div id="node-pop">Do you know which part of your body is named after the famous Greek warrior Achilles? Why?</div>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div> 
+      
+    </div> <!-- end content -->  
+    <section class="container" style="height:670px;margin-top:0px;">
+      <div class="spriteComing"></div>
+    </section>
+  </div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="iliadaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="iliadaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="iliadaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="iliadaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-iliad" style="visibility:hidden;"></div>
+  </div>
+  
+  
+    <script src="js/spritespin.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="js/script.js"></script>
+  <script>
+    sound = new Audio();
+    soundiliad = new Audio();
+    (function() {
+            if(sound.canPlayType('audio/mpeg')) {
+              
+              $('#actualaudio-iliad').html('<audio id="iliadnar" controls preload onpause="playiliad()" onplay="pauseiliad()"><source src="audio/Page16.mp3" type="audio/mpeg"></audio>');
+            } 
+    
+    $("#iliad").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    (function() { 
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=108";
+      $.getJSON( url, function( data ) {
+        if(soundiliad.canPlayType('audio/mpeg')) {
+              soundiliad.src = data[0].Audio;
+            }
+      });
+    })();
+    
+    $('#start-iliad').on('click', function() {
+      $('#actualaudio-iliad').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-iliad').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    $('#greekiliad').on('click', function() {
+      soundiliad.play();
+      iliadaudiobg.pause();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-storytelling.html");
+      iliadaudiobg.pause();
+      agsoundbg.play();
+      soundiliad.pause();
+    }
+    
+    function pauseiliad() {
+      iliadaudiobg.pause();
+    }
+    
+    function playiliad() {
+      //iliadaudiobg.play();
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    
+    $("#achillessubmit").on('tap', function() {
+      var achillesanswer = $('#achillesans').val();
+      if(achillesanswer.toLowerCase() == "achilles" || achillesanswer.toLowerCase() == "achilles heels" || achillesanswer.toLowerCase() == "achilles tendon" || achillesanswer.toLowerCase() == "heel") {
+        alert("You got it right! "+achillesanswer+" is named after Achilles.");
+      } else {
+        alert("Not quite.");
+      }
+    });
+    /* ******************** */
+    $("#iliadaudioplbtn").on('tap', function() {
+      iliadnar.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#iliadaudiofbtn").on('tap', function() {
+      var ctime = iliadnar.currentTime;
+      iliadnar.currentTime = ctime + 10;
+    });
+    
+    $("#iliadaudiobbtn").on('tap', function() {
+      var ctime = iliadnar.currentTime;
+      iliadnar.currentTime = ctime - 10;
+    });
+    
+    $("#iliadaudiopsbtn").on('tap', function() {
+      iliadnar.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

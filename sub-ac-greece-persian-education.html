@@ -1,0 +1,121 @@
+<!-- i-C-a -->
+<div id="persianeducation" data-role="page">
+  <script src="js/hammer.js"></script>
+  <script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="bptitleholder" style="padding-top:14px;"><h1>Persian Education</h1></div>
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-spacer"></div>
+      
+      <div class="sidebarleft-half">
+        <a id="xenophon" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/xenophon.jpg', 'Statue of Xenophon, in the city of Vienna')" href="#">click here</a>
+        <a id="cyrus" style="visibility:hidden;" onclick="htmlLightbox('images/5-8/Ancient_Civilizations/Greece/World_around_Greece/Tomb_of_Cyrus.jpg', 'The tomb of Cyrus the Great')" href="#">click here</a>
+        <div id="zoomwrapper">  
+          <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+             <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/xenophonpol.jpg" alt="" />
+          </div>
+          <div id="polb2"class="pPiece" style="left:75px;top:290px;">
+            <img src="images/5-8/Ancient_Civilizations/Greece/World_around_Greece/Tomb_of_Cyruspol.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="bpcontent">
+        <p>Xenophon, a young Athenian who lived at the end of the 5th century BCE, was a man of many talents. As an army general, he led 10,000 Greek soldiers from Persia, where they had been left stranded, all the way back to Greece. Xenophon was a controversial figure.  He disliked democracy and admired the Persians who lived under the absolute rule of their Great King.</p>
+        <p>Xenophon spent time in the service of the Persian king.  He wrote a work called Cyropaedia about the education of Cyrus, a prominent Persian king. According to Xenophon, Persian noblemen like Cyrus learned only three things throughout their lives: to ride a horse, to use a bow and arrow, and to say the truth.</p>
+        <p>Why do you think Persian education focused on these three things?  What do you learn at school?”</p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+      
+    </div> <!--end of content-->
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="persianeducaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="persianeducaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="persianeducaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="persianeducaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-persianseduc" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    (function() {
+      $('div#polb1 > img').css("-webkit-transform", "rotate(0deg)");
+      $('div#polb1').css("z-index", 1);
+      $('div#polb2 > img').css("-webkit-transform", "rotate(5deg)");;
+      
+            if(sound.canPlayType('audio/mpeg')) {
+              
+              $('#actualaudio-persianseduc').html('<audio id="perseducaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page25.mp3" type="audio/mpeg"></audio>');
+            } 
+    
+    $("#persianeducation").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    /*(function() {
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=69";
+     $.getJSON( url, function( data ) {
+            var html = data[0].Images;
+            var re = /<img[^>]+src="http:\/\/([^">]+)/g;
+            var results = re.exec(html);
+            var source = results[1];
+            $('#parthenon').attr('href', "JavaScript:html5Lightbox.showLightbox(0, 'http://"+source+"', 'The beautiful Parthenon and its Doric columns');")
+         });
+    })();*/
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece-persians.html");
+    }
+    
+    $('#start-temples').on('click', function() {
+    	$('#actualaudio-temples').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio-temples').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    $("#polb1").on('tap', function() {
+      $('#xenophon')[0].click();
+    });
+    $("#polb2").on('tap', function() {
+      $('#cyrus')[0].click();
+    });
+    
+    /* ******************** */
+    $("#persianeducaudioplbtn").on('tap', function() {
+      perseducaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#persianeducaudiofbtn").on('tap', function() {
+      var ctime = perseducaudio.currentTime;
+      perseducaudio.currentTime = ctime + 10;
+    });
+    
+    $("#persianeducaudiobbtn").on('tap', function() {
+      var ctime = perseducaudio.currentTime;
+      perseducaudio.currentTime = ctime - 10;
+    });
+    
+    $("#persianeducaudiopsbtn").on('tap', function() {
+      perseducaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+  <script src="js/twocardLogicb.js"></script>
+</div>

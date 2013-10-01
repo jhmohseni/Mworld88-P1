@@ -1,0 +1,125 @@
+<!-- i-C-a -->
+<div id="nscollide" data-role="page">
+    <script src="js/hammer.js"></script>
+    <script src="js/jquery.hammer.js"></script>
+    <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+    <div id="bonus-ags" class="talkbubble" style="background:url(images/5-8/Space/Black_Holes/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:500px;top:40px;visibility:hidden;"></div>
+    <div class="bptitleholder" style="padding-top:14px;"><h1>Neutron Stars Collide</h1></div>
+    <div id="anisold">
+        <div id="spacechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                 <div id="zoomwrapper">
+                   <div id="polb1" class="pPiece" style="left:100px;top:270px;">
+                     <img src="images/5-8/Space/Black_Holes/Where_BH_Come/nscollide2pol.jpg" alt="" />
+                   </div>
+                 </div><!--/zoomwrapper-->
+                
+                </div>
+                <div class="bpcontentbh">
+                    <p>When two neutron stars collide, incredible things happen. </p>
+                    <p>The new object weighs much more than the Sun but cannot support its own weight. In a fraction of a second, it collapses to form a new black hole. </p>
+                    <p>This creation of a new black hole can be very violent, producing jets of particles and bursts of gamma rays. These gamma ray bursts can be seen by satellites orbiting the Earth. </p>
+                    <p>The creation of black holes in this way sends ripples throughout space.  These ripples pass by the Earth every day!</p>
+                </div>
+                <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="images/5-8/bottomhomebh.png"></a></div>
+
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+     <div class="audiopanel">
+       <div class="bbh"><img id="nscollideaudiobbtn" src="images/audio/audio-back.png"></div>
+       <div class="plbh"><img id="nscollideaudioplbtn" src="images/audio/audio-play.png"></div>
+       <div class="psbh"><img id="nscollideaudiopsbtn" src="images/audio/audio-pause.png"></div>
+       <div class="fbh"><img id="nscollideaudiofbtn" src="images/audio/audio-forw.png"></div>
+       <div id="actualaudio-nscollide" style="visibility:hidden;"></div>
+     </div>
+    
+     <div id="collidingnsholder" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;z-index:-1;">
+         <div class="previdcontainer">
+           <video id="collidingns" width="1024" height="748" preload>
+             <source src="video/collidingns.m4v" type="video/mp4">
+           </video>
+         </div>
+     </div> 
+    
+    <script>
+        sound = new Audio();
+        (function() {
+                if(sound.canPlayType('audio/mpeg')) {
+                    $('#actualaudio-nscollide').html('<audio controls preload id="nscollideaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="audio/Page15_0.mp3" type="audio/mpeg"></audio>');
+                } 
+    
+            collidingns.addEventListener('ended', function() { 
+              //minoanvolcano.webkitExitFullscreen();
+              $("#collidingnsholder").css({"visibility":"hidden", "z-index":-1});
+              $("#collidingns").css({"z-index":-1});
+              bgsoundbh.play(); 
+            });
+            
+            $("#nscollide").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+            //change images path
+            changeImageSrc();
+            findElementsWithBgImage();
+            changeAudioVideoSrc();
+        })();
+        
+        
+        $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+        function goBack() {
+            $.mobile.changePage("sub-space-bh-blackhole.html");
+        }
+
+       function pausedaudio() {
+         bgsoundbh.play();
+       }
+       
+       function pausebg() {
+         bgsoundbh.pause();
+       }
+       
+       $("#polb1").on('tap', function() {
+         $("#collidingnsholder").css({"visibility":"visible", "z-index":10});
+         $("#collidingns").css({"z-index":9});
+         bgsoundbh.pause();
+         collidingns.play();
+       });
+       
+    $("#collidingns").on('tap', function() {
+      $("#collidingnsholder").css({"visibility":"hidden", "z-index":-1});
+      $("#collidingns").css({"z-index":-1});
+      bgsoundbh.play();
+      collidingns.pause();
+      collidingns.currentTime = 0;
+    });
+/* ******************** */
+    $("#nscollideaudioplbtn").on('tap', function() {
+      nscollideaudio.play();
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#nscollideaudiofbtn").on('tap', function() {
+      var ctime = nscollideaudio.currentTime;
+      nscollideaudio.currentTime = ctime + 10;
+    });
+    
+    $("#nscollideaudiobbtn").on('tap', function() {
+      var ctime = nscollideaudio.currentTime;
+      nscollideaudio.currentTime = ctime - 10;
+    });
+    
+    $("#nscollideaudiopsbtn").on('tap', function() {
+      nscollideaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });       
+        
+    </script>
+</div>

@@ -1,0 +1,103 @@
+<!-- i-C-a -->
+<div id="lifeinag" data-role="page">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div class="navtitleholder" style="padding-top:14px;"><h1>Life in Ancient Greece</h1></div>
+  
+  
+  <div id="anisold"><div id="animatedsoldier"></div><div id="acgreecechar">&nbsp;  
+    <div data-role="content" class="kidzcontent">
+      <div class="nav-content">
+        <p>Histories of the Ancient Greeks usually focus on the wars they fought - often with each other! However, the Greeks did more than just go to war.  They also developed and enjoyed a lively society, and were proud of this fact.  As the Greek poet Archilochus said in the 7th century BCE, he would happily abandon his shield to save his life: "oh well," he said, "I can always buy a new one!" </p>
+        <p>The Athenians were proud of the way they spent their time when not at war. They went to the gym! The palaestra, was their form of gym, where they exercised and socialised. The Greeks also organised elaborate festivals, played sports, debated the meaning of life, and went to the theatre!  </p>
+        <p>Education was very important for Athenian children. Click on the link to find out what school was like for children in ancient Greece!</p>
+      </div>
+      
+      <div class="navbtn1">
+        <p><a href='sub-ac-greece-olympics.html' data-transition="slide" id="olympicslink"><img src="images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/olympicbtn.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href='sub-ac-greece-storytelling.html' data-transition="slide"><img src="images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/trojanbtn.png"></a></p>
+      </div>
+    
+      <div class="navbtn3">
+        <p><a href='sub-ac-greece-agschool.html' data-transition="slide" ><img src="images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/agschoolbtn.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href='sub-ac-greece-agora.html' data-transition="slide" ><img src="images/5-8/Ancient_Civilizations/Greece/Life_in_Ancient_Greece/agorabtn.png"></a></p>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+      <!-------------------->
+      
+    </div> <!--end of content-->
+  </div></div><!--/anisold-->
+  <div class="audiopanel">
+    <div class="bbh"><img id="lifeinagaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="lifeinagaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="lifeinagaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="lifeinagaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-lifeinag" style="visibility:hidden;"></div>
+  </div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    
+    (function() {
+      var url = "http://back.uvmate.com/jeuel_services/educ.json?nid=21";
+     $.getJSON( url, function( data ) {
+            /*$('#titleb-holder').html("<h1>"+ data[0].node_title +"</h1>");*/
+            //$('#node-body-oag').html(data[0].Body);
+            
+            if(sound.canPlayType('audio/mpeg')) {
+              
+              $('#actualaudio-lifeinag').html('<audio id="lifeinagaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page13.mp3" type="audio/mpeg"></audio>');
+            } 
+         });
+    
+    $("#lifeinag").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+      //change images path
+      changeImageSrc();
+      findElementsWithBgImage();
+      changeAudioSrc();
+    })();
+    
+    $('#olympicslink').on('click', function() {
+      startolympicsaudiobg();
+      pauseagbg();
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-ac-greece.html");
+    }
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+    });
+    /* ******************** */
+    $("#lifeinagaudioplbtn").on('tap', function() {
+      lifeinagaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#lifeinagaudiofbtn").on('tap', function() {
+      var ctime = lifeinagaudio.currentTime;
+      lifeinagaudio.currentTime = ctime + 10;
+    });
+    
+    $("#lifeinagaudiobbtn").on('tap', function() {
+      var ctime = lifeinagaudio.currentTime;
+      lifeinagaudio.currentTime = ctime - 10;
+    });
+    
+    $("#lifeinagaudiopsbtn").on('tap', function() {
+      lifeinagaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>

@@ -1,0 +1,102 @@
+<!-- i-C-a -->
+<script src="js/jquery.path.js"></script>
+<div id="agschool" data-role="page">
+  <script src="js/slidebar.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><img class="homebtn" src="images/5-8/Ancient_Civilizations/Greece/homebtn.png"></div>
+  <div class="cpbtnholder"><img class="cpbtn" src="images/5-8/Ancient_Civilizations/Greece/cpbtn.png"></div>
+  <div class="buildbtnholder"><img class="buildbtn" src="images/5-8/Ancient_Civilizations/Greece/buildbtn.png"></div>
+  <div class="mpbtnholder"><img class="mpbtn" src="images/5-8/Ancient_Civilizations/Greece/mpbtn.png"></div>
+  <div class="menubtnholder"><img class="menubtn" src="images/5-8/Ancient_Civilizations/Greece/menubtn.png"></div>
+  <div id="bonus-ags" class="talkbubble" style="background:url(images/5-8/Ancient_Civilizations/Greece/game/bonustalk.png) no-repeat; width:473px;height:296px;position:absolute;left:300px;top:40px;visibility:hidden;"></div><!--/bonus-ags-->
+  <div class="bptitleholder" style="padding-top:14px;"><h1>School in Ancient Greece</h1></div>
+    <div id="anisold">
+      <div id="animatedsoldier"></div>
+        <div id="acgreecechar">&nbsp;
+            <div data-role="content" class="kidzcontent">
+                <div class="v-spacer"></div>
+                <div class="sidebarleft-half">
+                </div>
+                <div class="bpcontent">
+                  <p>Children in Ancient Greece started school very early – before the rising of the sun! Children were escorted to school by a paidagogus, a slave responsible for getting children to school safely and who attended class with them.</p>
+                  <p>The Athenians also had a police force, the paidonomoi, who checked that children attended school on time and safely.  If you are late for school, maybe your Mum or Dad can call on the ghost of a paidonomos to make sure you get there on time!</p>
+                  <p>Athenian schoolboys studied reading and writing, music, astronomy and mathematics. Girls education focused on their participation in festivals, such as the festivals in honour of Hera and Artemis.  Boys also received two years of military training, after which they became citizens.</p>
+                  <p>Athenians who wanted to become philosophers or scholars needed to show their mastery of maths and geometry. Plato, the famous philosopher, had a sign engraved on the door of his academy, which read: “Let no one ignorant of geometry enter!”</p>
+                </div>
+                
+            <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="images/5-8/bottomhome.png"></a></div>
+            
+            </div><!--end of content-->
+        </div>
+    </div><!--/anisold-->
+    <section class="container" style="height:670px;margin-top:0px;">
+      <div class="spriteComing"></div>
+    </section>
+    <script src="js/spritespin.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="js/script.js"></script>
+    <div class="audiopanel">
+    <div class="bbh"><img id="agschoolaudiobbtn" src="images/audio/audio-back.png"></div>
+    <div class="plbh"><img id="agschoolaudioplbtn" src="images/audio/audio-play.png"></div>
+    <div class="psbh"><img id="agschoolaudiopsbtn" src="images/audio/audio-pause.png"></div>
+    <div class="fbh"><img id="agschoolaudiofbtn" src="images/audio/audio-forw.png"></div>
+    <div id="actualaudio-agschool" style="visibility:hidden;"></div>
+  </div>
+    <script>      
+        sound = new Audio();
+        (function() {
+            
+                if(sound.canPlayType('audio/mpeg')) {
+                    
+                    $('#actualaudio-agschool').html('<audio id="agschoolaudio" controls preload onpause="playagbg()" onplay="pauseagbg()"><source src="audio/Page18.mp3" type="audio/mpeg"></audio>');
+                } 
+            
+    
+            $("#agschool").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    
+          //change images path
+          changeImageSrc();
+          findElementsWithBgImage();
+          changeAudioSrc();
+        })();
+    
+        $('#start-agschool').on('click', function() {
+            $('#actualaudio-agschool').show();
+            var oldHeight = $('#node-body-holder').height();
+            var newHeight = oldHeight - $('#actualaudio-agschool').height();
+            $('#node-body-holder').height(newHeight);
+        });
+    
+        function goBack() {
+            $.mobile.changePage("sub-ac-greece-lifeinag.html");
+        }
+        $('.homelinkag').on('tap', function() { 
+            mainaudiobg.play(); agsoundbg.pause(); agsoundbg.currentTime = 0; 
+        });
+      $("#bonus-ags").on('tap', function() {
+        $.mobile.changePage("game-ag1.html");
+        mapmakerbg.play();
+        agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      })
+      /* ******************** */
+    $("#agschoolaudioplbtn").on('tap', function() {
+      agschoolaudio.play();
+      agsoundbg.pause(); agsoundbg.currentTime = 0; 
+      $(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#agschoolaudiofbtn").on('tap', function() {
+      var ctime = agschoolaudio.currentTime;
+      agschoolaudio.currentTime = ctime + 10;
+    });
+    
+    $("#agschoolaudiobbtn").on('tap', function() {
+      var ctime = agschoolaudio.currentTime;
+      agschoolaudio.currentTime = ctime - 10;
+    });
+    
+    $("#agschoolaudiopsbtn").on('tap', function() {
+      agschoolaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    </script>
+</div>

@@ -1,0 +1,87 @@
+<!-- i-C-a -->
+<div data-role="page" id="ancient">
+  <div data-role="content" style="overflow:hidden !important;">
+    <div id="titleb-holder"><h1 style="margin-top:184px;">Ancient Civilisations</h1></div>
+    
+    <div style="width:90%;margin:auto;">
+      <!--<div class="aclink"><a href="preancientgreece.html" data-transition="slide" id="agmovielink"><img src="css/images/5-8/Ancient_Civilizations/agbtn.png"></a></div>-->
+      <div class="aclink"><a href="#" data-transition="slide" id="agmovielink"><img src="css/images/5-8/Ancient_Civilizations/agbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Ancient_Civilizations/cdbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Ancient_Civilizations/aibtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Ancient_Civilizations/aztecbtn.png"></a></div><br>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Ancient_Civilizations/romebtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Ancient_Civilizations/egyptbtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Ancient_Civilizations/eabtn.png"></a></div>
+      <div class="aclink"><a href="#" data-transition="slide"><img src="css/images/5-8/Ancient_Civilizations/incasbtn.png"></a></div>
+    </div>
+    
+    <div class="botlogoholder"><a href="home.html" class="homelinkag"><img src="css/images/5-8/bottomhome.png"></a></div>
+    
+    <div id="pre-ag" style="width:1024px;height:748px;position:absolute;left:0px;top:0px;visibility:hidden;background:#000000;">
+      <div class="previdcontainer">
+        <video id="agvideo" width="1024" height="722" preload>
+          <source src="video/Ancient_Greece.m4v" type="video/mp4">
+       </video>
+     </div>
+     <!--<div style="float:right;margin-top:5px;margin-right:10px;z-index:999;"><a href="#" id="proceedtoag"><img src="css/images/5-8/Space/Black_Holes/skipvidbtn.png"></a></div>-->
+    </div> <!--/pre-ac -->
+  </div> <!-- end content -->  
+    <script>
+				$(function() {
+          //agvideo = document.getElementById("agvideo");
+					$("#ancient").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+          agvideo.addEventListener('ended', function() { 
+            //agvideo.webkitExitFullscreen();
+            agsoundbg.play(); 
+            $.mobile.changePage("sub-ac-greece.html");  
+          });
+          changeVideoSrc();
+				});
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
+      mainaudiobg.play();
+    }
+    
+    $("#agvideo").on('tap', function() {
+      //agvideo.webkitExitFullscreen();
+      agsoundbg.play();
+      $.mobile.changePage("sub-ac-greece.html");
+    });
+    
+    $('#agmovielink').on('tap', function() { 
+      ancientsoundbg.pause(); ancientsoundbg.currentTime = 0;  
+      if(app.firstRun.ancient.greece){        
+        if(!checkConnection()){
+          navigator.notification.alert('Device is not connected to Internet!', function(){}, 'Error', 'ok');
+          return false;
+        }
+        sessionStorage.assetsName = 'greece';
+        sessionStorage.nextPage = "sub-ancient.html";
+        $.mobile.changePage('spaceloading.html');
+      }
+      else {
+        $("#pre-ag").css({"visibility":"visible"});
+        agvideo.play();
+      }
+      //agvideo.webkitEnterFullscreen();
+    });
+    $('.homelinkag').on('tap', function() { 
+      mainaudiobg.play(); ancientsoundbg.pause(); ancientsoundbg.currentTime = 0; 
+    });
+    $('#proceedtoag').on('tap', function() {
+        agsoundbg.play();
+        $.mobile.changePage("sub-ac-greece.html");
+    });
+
+    $('#ancient').live('pagebeforeshow', function(evt, data){
+      if(data.prevPage.attr('id') == 'spaceLoading'){
+        if(!app.firstRun.ancient.greece){
+          $("#pre-ag").css({"visibility":"visible"});
+          agvideo.play();
+        }
+      }
+    });
+			</script>
+</div>

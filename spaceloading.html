@@ -1,0 +1,48 @@
+<!-- i-C-a -->
+<div data-role="page" id="spaceLoading">
+    <div data-role="content">
+      <div id="titlespace-holder"><h1 style="margin-top:184px;"></h1></div>
+      
+      
+      <div class="loading-status"><h1 id="dwfiles">Downloading 0%</h1></div>
+      <br />
+      <div class="loading-page-loader"><img src="img/loadingImg.gif" /></div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkspace"><img src="css/images/5-8/bottomhomebh.png"></a></div>
+  </div><!--end of content-->
+  <script>
+    $(function() {
+      $("#spaceLoading").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      if(sessionStorage.assetsName != undefined && sessionStorage.nextPage != undefined) {
+        var assetsArr, runStatus;
+        switch(sessionStorage.assetsName) {
+          case 'bh' :
+            assetsArr = FS.assets.space;
+            if(assetsArr.length > 0 ) {
+              app.firstRun.space.bh = false;
+            }
+            break;
+          case 'greece' :
+            assetsArr = FS.assets.aGreece;
+            if(assetsArr.length > 0 ) {
+              app.firstRun.ancient.greece = false;
+            }
+            break;
+          default:
+            assetsArr = [];
+        }
+        if(assetsArr.length > 0 ) {
+          loadAppFiles(assetsArr, $('#dwfiles'), sessionStorage.nextPage, true);
+        }
+        else
+          $.mobile.changePage(sessionStorage.nextPage);
+      }
+    });
+        
+    function goBack() {
+      $.mobile.changePage("home.html");
+      mainaudiobg.play();
+      spacesoundbg.pause(); spacesoundbg.currentTime = 0;
+    }
+    
+	</script>
+</div>
